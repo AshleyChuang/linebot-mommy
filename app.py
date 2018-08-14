@@ -39,7 +39,7 @@ rich_menu_to_create = RichMenu(
     ])
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu_to_create)
 print(rich_menu_id)
-print(line_bot_api.get_rich_menu_list().size())
+print(len(line_bot_api.get_rich_menu_list()))
 
 @handler.add(FollowEvent)
 def link_rich_menu(event):
