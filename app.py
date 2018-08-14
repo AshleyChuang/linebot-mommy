@@ -22,6 +22,9 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('MIhM1rtBQmPWHHUG0P6WT/q9sOeoe9PTM3NdfLOnI74qp4DtLTHR0WQydDUFbxe868ae78yTpWcRsVQSZJ2FWtV7w+Zqy+Uzomv0jKYFUia8+yT6DKKNd2InF61rFJlQWoPfgeaLzCfQ+JDRNIGFxQdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('c80566dca51b314332768ca929117904')
+lst_rich_menu_obj = line_bot_api.get_rich_menu_list()
+for rich_menu_obj in lst_rich_menu_obj:
+    line_bot_api.delete_rich_menu(rich_menuu_obj.rich_menu_id)
 rich_menu_to_create = RichMenu(
     size=RichMenuSize(width=2500,height=1686),
     selected=False,
@@ -36,12 +39,11 @@ rich_menu_to_create = RichMenu(
     ])
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu_to_create)
 print(rich_menu_id)
-print("rich menu list:")
-print(line_bot_api.get_rich_menu_list())
+print(line_bot_api.get_rich_menu_list().size())
 
 @handler.add(FollowEvent)
 def link_rich_menu(event):
-    link_rich_menu_to_user.link_rich_menu_to_user(event.source.user_id, rich_menu_id);
+    line_bot_api.link_rich_menu_to_user(event.source.user_id, rich_menu_id);
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
