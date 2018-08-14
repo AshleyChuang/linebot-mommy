@@ -24,7 +24,7 @@ line_bot_api = LineBotApi('MIhM1rtBQmPWHHUG0P6WT/q9sOeoe9PTM3NdfLOnI74qp4DtLTHR0
 handler = WebhookHandler('c80566dca51b314332768ca929117904')
 lst_rich_menu_obj = line_bot_api.get_rich_menu_list()
 for rich_menu_obj in lst_rich_menu_obj:
-    line_bot_api.delete_rich_menu(rich_menuu_obj.rich_menu_id)
+    line_bot_api.delete_rich_menu(rich_menu_obj.rich_menu_id)
 rich_menu_to_create = RichMenu(
     size=RichMenuSize(width=2500,height=1686),
     selected=False,
