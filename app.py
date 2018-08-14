@@ -38,6 +38,7 @@ rich_menu_to_create = RichMenu(
     RichMenuArea(RichMenuBounds(x=938,y=421.5,width=938,height=843),URITemplateAction(uri='line://nv/location'))
     ])
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu_to_create)
+line_bot_api.set_rich_menu_image(rich_menu_to_create, 'image/jpeg', 'pic.jpg')
 print(rich_menu_id)
 print(len(line_bot_api.get_rich_menu_list()))
 
