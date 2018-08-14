@@ -23,12 +23,13 @@ line_bot_api = LineBotApi('MIhM1rtBQmPWHHUG0P6WT/q9sOeoe9PTM3NdfLOnI74qp4DtLTHR0
 # Channel Secret
 handler = WebhookHandler('c80566dca51b314332768ca929117904')
 rich_menu_to_create = RichMenu(
-    size=RichMenuBound(width=2500,height=1686 ),
-    selected=False,
+    size=RichMenuBounds(width=2500,height=1686),
+    selected=True,
     name="nice richmenu",
     chatBarText="touch me",
     areas=[
-    RichMenuArea(RichMenuBound(x=0,y=0,width=2500,height=1686),URITemplateAction(uri='line://nv/location'))
+    RichMenuArea(RichMenuBounds(x=0,y=0,width=2500,height=1686),URITemplateAction(uri='line://nv/location')),
+    RichMenuArea(RichMenuBounds(x=12500,y=0,width=2500,height=1686),URITemplateAction(uri='line://nv/location'))
     ])
 rich_menu_id = line_bot_api.create_rich_menu(data=rich_menu_to_create)
 print(rich_menu_id)
