@@ -33,6 +33,7 @@ rich_menu_to_create = RichMenu(
     RichMenuArea(RichMenuBounds(x=12500,y=0,width=1250,height=1686),URITemplateAction(uri='line://nv/location'))
     ])
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu=rich_menu_to_create)
+print(line_bot_api.headers)
 print(rich_menu_id)
 
 # 監聽所有來自 /callback 的 Post Request
