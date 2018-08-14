@@ -21,6 +21,7 @@ app = Flask(__name__)
 # Channel Access Token
 line_bot_api = LineBotApi('MIhM1rtBQmPWHHUG0P6WT/q9sOeoe9PTM3NdfLOnI74qp4DtLTHR0WQydDUFbxe868ae78yTpWcRsVQSZJ2FWtV7w+Zqy+Uzomv0jKYFUia8+yT6DKKNd2InF61rFJlQWoPfgeaLzCfQ+JDRNIGFxQdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
+print(line_bot_api.headers)
 handler = WebhookHandler('c80566dca51b314332768ca929117904')
 rich_menu_to_create = RichMenu(
     size=RichMenuBounds(width=2500,height=1686),
