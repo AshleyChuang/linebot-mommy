@@ -27,9 +27,8 @@ rich_menu_to_create = RichMenu(
     size=RichMenuSize(width=2500,height=1686),
     selected=False,
     name="nice richmenu",
-    chatBarText="touch me",
-    areas=[
-    RichMenuArea(RichMenuBounds(x=0,y=0,width=2500,height=1686),URITemplateAction(uri='line://nv/location'))])
+    chat_bar_text="touch me",
+    areas=[RichMenuArea(RichMenuBounds(x=0,y=0,width=2500,height=1686),URITemplateAction(uri='line://nv/location'))])
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu_to_create)
 print(line_bot_api.headers)
 print(rich_menu_id)
