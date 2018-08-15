@@ -75,8 +75,8 @@ def baby_talk():
     flex_message = FlexSendMessage(alt_text='tag',contents=BubbleContainer.new_from_json_dict(data))
     return flex_message
 
-def search_info():
-    # quick replies
+#def search_info():
+# quick replies
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
