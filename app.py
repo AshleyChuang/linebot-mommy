@@ -4,7 +4,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 
 from linebot import (
-    LineBotApi, WebhookHandler
+    LineBotApi, WebhookHandler, LineBotApiError
 )
 from linebot.exceptions import (
     InvalidSignatureError
@@ -61,7 +61,7 @@ def baby_talk():
     template = template_env.get_template('flex_example.json')
     data = template.render(hello="yoyo")
     data = eval(data)
-    flex_message = FlexSendMessage(alt_text='tag',contents=CarouselContainer.new_from_json_dict(json.loads(data)))
+    flex_message = FlexSendMessage(alt_text='tag',contents=CarouselContainer.new_from_json_dict(data))
     return flex_message
 
 
