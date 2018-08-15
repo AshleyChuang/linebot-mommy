@@ -11,12 +11,14 @@ from linebot.exceptions import (
 )
 from linebot.models import (
     FollowEvent,MessageEvent, PostbackEvent, TextMessage, TextSendMessage,TemplateSendMessage, ButtonsTemplate,
-    PostbackTemplateAction, MessageTemplateAction,
-    URITemplateAction, DatetimePickerTemplateAction,
+    PostbackTemplateAction, MessageTemplateAction,URITemplateAction,
     ConfirmTemplate, CarouselTemplate, CarouselColumn,
     ImageCarouselTemplate, ImageCarouselColumn,
     RichMenu,RichMenuSize, RichMenuArea, RichMenuBounds,
-    BubbleContainer,FlexSendMessage, CarouselContainer
+    BubbleContainer,FlexSendMessage, CarouselContainer,
+    StickerMessage, StickerSendMessage,
+    QuickReply, QuickReplyButton,
+    DatetimePickerAction, PostbackAction, CameraAction, CameraRollAction, LocationAction,MessageAction
 )
 
 template_env = Environment(
@@ -36,7 +38,7 @@ def handle_follow(event):
     buttons_template = ButtonsTemplate(
         type='buttons', title="歡迎加入寶寶說",
         text='bla bla bla',
-        actions=[URITemplateAction(type = 'uri',label='Picture', uri="line://app/1599707218-4898LaxV")]
+        actions=[(type = 'uri',label='初次使用設定', uri="line://app/1599707218-4898LaxV")]
         )
     message = TemplateSendMessage(
         type = 'template', alt_text="Welcome",
@@ -73,6 +75,9 @@ def baby_talk():
     flex_message = FlexSendMessage(alt_text='tag',contents=BubbleContainer.new_from_json_dict(data))
     return flex_message
 
+def search_info():
+    # quick replies
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     #print(event.source.user_id)
@@ -81,17 +86,48 @@ def handle_message(event):
     if event.message.text == "寶寶":
         flex_message = baby_talk()
         line_bot_api.reply_message(event.reply_token, flex_message)
-    elif event.message.text == "紀錄":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="Jack還在寫啦"))
     elif event.message.text == "社群":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒有合作對象謝謝"))
     elif event.message.text == "資訊":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="請自己去google"))
+        search_info()
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(
+                text='Quick reply',
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=PostbackAction(label="label1", data="data1")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="label2", text="text2")
+                        ),
+                        QuickReplyButton(
+                            action=DatetimePickerAction(label="label3",
+                                                        data="data3",
+                                                        mode="date")
+                        ),
+                        QuickReplyButton(
+                            action=CameraAction(label="label4")
+                        ),
+                        QuickReplyButton(
+                            action=CameraRollAction(label="label5")
+                        ),
+                        QuickReplyButton(
+                            action=LocationAction(label="label6")
+                        )
+                    ])))
     elif event.message.text == "設定":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒東西可設定"))
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
 
+@handler.add(MessageEvent, message=StickerMessage)
+def handle_sticker_message(event):
+    line_bot_api.reply_message(
+        event.reply_token,
+        StickerSendMessage(
+            package_id=event.message.package_id,
+            sticker_id=event.message.sticker_id)
+    )
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     #crawl_index_movie()
