@@ -57,7 +57,7 @@ def callback():
     return 'OK'
 
 def baby_talk():
-    template = template_env.get_template('tag.json')
+    template = template_env.get_template('flex_example.json')
     #data = template.render(dict(tag=tag, items=items))
     flex_message = FlexSendMessage(alt_text='tag',contents=CarouselContainer.new_from_json_dict(json.loads(template)))
     return flex_message
