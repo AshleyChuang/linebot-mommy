@@ -4,10 +4,10 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 
 from linebot import (
-    LineBotApi, WebhookHandler, LineBotApiError
+    LineBotApi, WebhookHandler
 )
 from linebot.exceptions import (
-    InvalidSignatureError
+    InvalidSignatureError, LineBotApiError
 )
 from linebot.models import (
     FollowEvent,MessageEvent, PostbackEvent, TextMessage, TextSendMessage,TemplateSendMessage, ButtonsTemplate,
