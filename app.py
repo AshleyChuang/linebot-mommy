@@ -46,6 +46,7 @@ print(len(line_bot_api.get_rich_menu_list()))
 
 @handler.add(FollowEvent)
 def link_rich_menu(event):
+    print("link rich menu")
     line_bot_api.link_rich_menu_to_user(event.source.user_id, rich_menu_id)
 
 @app.route("/callback", methods=['POST'])
