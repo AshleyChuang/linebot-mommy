@@ -89,7 +89,7 @@ def handle_message(event):
     elif event.message.text == "社群":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒有合作對象謝謝"))
     elif event.message.text == "資訊":
-        search_info()
+        #search_info()
         line_bot_api.reply_message(event.reply_token,TextSendMessage(
                 text='Quick reply',
                 quick_reply=QuickReply(
