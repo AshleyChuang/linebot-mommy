@@ -36,7 +36,7 @@ def handle_follow(event):
     buttons_template = ButtonsTemplate(
         type='buttons', title="歡迎加入寶寶說",
         text='bla bla bla',
-        actions=[uri_template = URITemplateAction(type = 'uri',label='Picture', uri="line://app/1599707218-4898LaxV")]
+        actions=[URITemplateAction(type = 'uri',label='Picture', uri="line://app/1599707218-4898LaxV")]
         )
     message = TemplateSendMessage(
         type = 'template', alt_text="Welcome",
