@@ -9,7 +9,7 @@
       "contents": [
         {
           "type": "text",
-          "text": "hello"
+          "text": "{{hello}}"
         },
         {
           "type": "text",

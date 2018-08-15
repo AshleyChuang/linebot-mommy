@@ -1,2 +1,3 @@
 line-bot-sdk
 flask
+Jinja2==2.10

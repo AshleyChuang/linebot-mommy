@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
 import os
-import sys
+from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 
 from linebot import (
@@ -59,8 +59,9 @@ def callback():
 
 def baby_talk():
     template = template_env.get_template('flex_example.json')
-    #data = template.render(dict(tag=tag, items=items))
-    flex_message = FlexSendMessage(alt_text='tag',contents=CarouselContainer.new_from_json_dict(json.loads(template)))
+    data = template.render(hello="yoyo")
+    data = eval(data)
+    flex_message = FlexSendMessage(alt_text='tag',contents=CarouselContainer.new_from_json_dict(json.loads(data)))
     return flex_message
 
 
