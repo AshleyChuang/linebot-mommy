@@ -1,19 +1,17 @@
 {
-
-    "type": "bubble",
-    "body": {
-      "type": "box",
-      "layout": "vertical",
-      "contents": [
-        {
-          "type": "text",
-          "text": "{{hello}}"
-        },
-        {
-          "type": "text",
-          "text": "world"
-        }
-      ]
-    }
-
+  "type": "bubble",
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "{{hello}}"
+      },
+      {
+        "type": "text",
+        "text": "world"
+      }
+    ]
+  }
 }

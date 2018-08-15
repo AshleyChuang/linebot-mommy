@@ -33,7 +33,16 @@ handler = WebhookHandler('c80566dca51b314332768ca929117904')
 
 @handler.add(FollowEvent)
 def handle_follow(event):
-    line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Got follow event'))
+    buttons_template = ButtonsTemplate(
+        type='buttons', title="歡迎加入寶寶說",
+        text='bla bla bla',
+        actions=[uri_template = URITemplateAction(type = 'uri',label='Picture', uri="line://app/1599707218-4898LaxV")]
+        )
+    message = TemplateSendMessage(
+        type = 'template', alt_text="Welcome",
+        template=buttons_template
+        )
+    line_bot_api.reply_message(event.reply_token, message)
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -63,6 +72,8 @@ def baby_talk():
     data = eval(data)
     flex_message = FlexSendMessage(alt_text='tag',contents=BubbleContainer.new_from_json_dict(data))
     return flex_message
+
+def social_media():
 
 
 @handler.add(MessageEvent, message=TextMessage)
