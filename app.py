@@ -1,6 +1,5 @@
 from flask import Flask, request, abort
 import os
-from PIL import Image
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -39,16 +38,16 @@ rich_menu_to_create = RichMenu(
     RichMenuArea(RichMenuBounds(x=938,y=421.5,width=938,height=843),URITemplateAction(uri='line://nv/location'))
     ])
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu_to_create)
-
-line_bot_api.set_rich_menu_image(rich_menu_to_create, 'image/jpeg', Image.open("pic.jpg"))
+f = open('pic.jpg', 'r+')
+jpgdata = f.read()
+line_bot_api.set_rich_menu_image(rich_menu_to_create, 'image/jpeg', jpgdata)
 print(rich_menu_id)
 print(len(line_bot_api.get_rich_menu_list()))
 
 @handler.add(FollowEvent)
 def link_rich_menu(event):
-    line_bot_api.link_rich_menu_to_user(event.source.user_id, rich_menu_id);
+    line_bot_api.link_rich_menu_to_user(event.source.user_id, rich_menu_id)
 
-# 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
