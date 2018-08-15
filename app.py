@@ -23,33 +23,10 @@ app = Flask(__name__)
 line_bot_api = LineBotApi('MIhM1rtBQmPWHHUG0P6WT/q9sOeoe9PTM3NdfLOnI74qp4DtLTHR0WQydDUFbxe868ae78yTpWcRsVQSZJ2FWtV7w+Zqy+Uzomv0jKYFUia8+yT6DKKNd2InF61rFJlQWoPfgeaLzCfQ+JDRNIGFxQdB04t89/1O/w1cDnyilFU=')
 # Channel Secret
 handler = WebhookHandler('c80566dca51b314332768ca929117904')
-lst_rich_menu_obj = line_bot_api.get_rich_menu_list()
-for rich_menu_obj in lst_rich_menu_obj:
-    line_bot_api.delete_rich_menu(rich_menu_obj.rich_menu_id)
-rich_menu_to_create = RichMenu(
-    size=RichMenuSize(width=2500,height=1686),
-    selected=False,
-    name="nice richmenu",
-    chat_bar_text="touch me",
-    areas=[
-    RichMenuArea(RichMenuBounds(x=0,y=0,width=624,height=1686),URITemplateAction(uri='line://nv/location')),
-    RichMenuArea(RichMenuBounds(x=624,y=0,width=938,height=843),URITemplateAction(uri='line://nv/location')),
-    RichMenuArea(RichMenuBounds(x=624,y=421.5,width=938,height=843),URITemplateAction(uri='line://nv/location')),
-    RichMenuArea(RichMenuBounds(x=938,y=0,width=938,height=843),URITemplateAction(uri='line://nv/location')),
-    RichMenuArea(RichMenuBounds(x=938,y=421.5,width=938,height=843),URITemplateAction(uri='line://nv/location'))
-    ])
-rich_menu_id = line_bot_api.create_rich_menu(rich_menu_to_create)
-with open("pic.jpg", "rb") as image_file:
-    encoded_string = base64.b64encode(image_file.read())
-line_bot_api.set_rich_menu_image(rich_menu_to_create, 'image/jpeg', encoded_string)
-print(rich_menu_id)
-print(len(line_bot_api.get_rich_menu_list()))
-
 
 @handler.add(FollowEvent)
 def handle_follow(event):
     line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Got follow event'))
-    #line_bot_api.link_rich_menu_to_user(event.source.user_id, rich_menu_id)
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -73,12 +50,127 @@ def callback():
 
     return 'OK'
 
+def baby_talk():
+    bubble = BubbleContainer(
+            direction='ltr',
+            hero=ImageComponent(
+                url='https://example.com/cafe.jpg',
+                size='full',
+                aspect_ratio='20:13',
+                aspect_mode='cover',
+                action=URIAction(uri='http://example.com', label='label')
+            ),
+            body=BoxComponent(
+                layout='vertical',
+                contents=[
+                    # title
+                    TextComponent(text='Brown Cafe', weight='bold', size='xl'),
+                    # review
+                    BoxComponent(
+                        layout='baseline',
+                        margin='md',
+                        contents=[
+                            IconComponent(size='sm', url='https://example.com/gold_star.png'),
+                            IconComponent(size='sm', url='https://example.com/grey_star.png'),
+                            IconComponent(size='sm', url='https://example.com/gold_star.png'),
+                            IconComponent(size='sm', url='https://example.com/gold_star.png'),
+                            IconComponent(size='sm', url='https://example.com/grey_star.png'),
+                            TextComponent(text='4.0', size='sm', color='#999999', margin='md',
+                                          flex=0)
+                        ]
+                    ),
+                    # info
+                    BoxComponent(
+                        layout='vertical',
+                        margin='lg',
+                        spacing='sm',
+                        contents=[
+                            BoxComponent(
+                                layout='baseline',
+                                spacing='sm',
+                                contents=[
+                                    TextComponent(
+                                        text='Place',
+                                        color='#aaaaaa',
+                                        size='sm',
+                                        flex=1
+                                    ),
+                                    TextComponent(
+                                        text='Shinjuku, Tokyo',
+                                        wrap=True,
+                                        color='#666666',
+                                        size='sm',
+                                        flex=5
+                                    )
+                                ],
+                            ),
+                            BoxComponent(
+                                layout='baseline',
+                                spacing='sm',
+                                contents=[
+                                    TextComponent(
+                                        text='Time',
+                                        color='#aaaaaa',
+                                        size='sm',
+                                        flex=1
+                                    ),
+                                    TextComponent(
+                                        text="10:00 - 23:00",
+                                        wrap=True,
+                                        color='#666666',
+                                        size='sm',
+                                        flex=5,
+                                    ),
+                                ],
+                            ),
+                        ],
+                    )
+                ],
+            ),
+            footer=BoxComponent(
+                layout='vertical',
+                spacing='sm',
+                contents=[
+                    # callAction, separator, websiteAction
+                    SpacerComponent(size='sm'),
+                    # callAction
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=URIAction(label='CALL', uri='tel:000000'),
+                    ),
+                    # separator
+                    SeparatorComponent(),
+                    # websiteAction
+                    ButtonComponent(
+                        style='link',
+                        height='sm',
+                        action=URIAction(label='WEBSITE', uri="https://example.com")
+                    )
+                ]
+            ),
+        )
+    return FlexSendMessage(alt_text="hello", contents=bubble)
+
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     #print(event.source.user_id)
     profile = line_bot_api.get_profile(event.source.user_id)
     user_name = profile.display_name
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+    if event.message.text == "寶寶":
+        flex_message = baby_talk()
+        line_bot_api.reply_message(event.reply_token, flex_message)
+    elif event.message.text == "紀錄":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="Jack還在寫啦"))
+    elif event.message.text == "社群":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒有合作對象謝謝"))
+    elif event.message.text == "資訊":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="請自己去google"))
+    elif event.message.text == "設定":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒東西可設定"))
+    else:
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
