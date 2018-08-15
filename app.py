@@ -1,5 +1,6 @@
 from flask import Flask, request, abort
 import os
+import base64
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -38,16 +39,17 @@ rich_menu_to_create = RichMenu(
     RichMenuArea(RichMenuBounds(x=938,y=421.5,width=938,height=843),URITemplateAction(uri='line://nv/location'))
     ])
 rich_menu_id = line_bot_api.create_rich_menu(rich_menu_to_create)
-f = open('pic.jpg', 'r+')
-jpgdata = f.read()
-line_bot_api.set_rich_menu_image(rich_menu_to_create, 'image/jpeg', jpgdata)
+with open("pic.jpg", "rb") as image_file:
+    encoded_string = base64.b64encode(image_file.read())
+line_bot_api.set_rich_menu_image(rich_menu_to_create, 'image/jpeg', encoded_string)
 print(rich_menu_id)
 print(len(line_bot_api.get_rich_menu_list()))
 
+
 @handler.add(FollowEvent)
-def link_rich_menu(event):
-    print("link rich menu")
-    line_bot_api.link_rich_menu_to_user(event.source.user_id, rich_menu_id)
+def handle_follow(event):
+    line_bot_api.reply_message(event.reply_token, TextSendMessage(text='Got follow event'))
+    #line_bot_api.link_rich_menu_to_user(event.source.user_id, rich_menu_id)
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -56,11 +58,16 @@ def callback():
 
     # get request body as text
     body = request.get_data(as_text=True)
-    #app.logger.info("Request body: " + body)
+    app.logger.info("Request body: " + body)
 
     # handle webhook body
     try:
         handler.handle(body, signature)
+    except LineBotApiError as e:
+        print("Got exception from LINE Messaging API: %s\n" % e.message)
+        for m in e.error.details:
+            print("  %s: %s" % (m.property, m.message))
+        print("\n")
     except InvalidSignatureError:
         abort(400)
 
