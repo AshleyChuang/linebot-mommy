@@ -61,7 +61,7 @@ def baby_talk():
     template = template_env.get_template('flex_example.json')
     data = template.render(hello="yoyo")
     data = eval(data)
-    flex_message = FlexSendMessage(alt_text='tag',contents=CarouselContainer.new_from_json_dict(data))
+    flex_message = FlexSendMessage(alt_text='tag',contents=BubbleContainer.new_from_json_dict(data))
     return flex_message
 
 
