@@ -100,18 +100,13 @@ def article_fetching(tag):
                 ),
                 URITemplateAction(
                     label='分享',
-                    uri='line://msg/text/?'+(article.get('title')).replace(" ", "%20")+article.get('url')
+                    uri='line://msg/text/?'+article.get('title')+article.get('url')
                 )
             ]
         ))
     carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
     message = TemplateSendMessage(type='template', alt_text='article', template=carousel_temp)
     return message
-
-@handler.add(MessageEvent, message=(ImageMessage))
-def handle_content_message(event):
-    message = article_fetching()
-    line_bot_api.reply_message(event.reply_token, message) # carousel
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -147,6 +142,12 @@ def handle_sticker_message(event):
             package_id=event.message.package_id,
             sticker_id=event.message.sticker_id)
     )
+
+@handler.add(MessageEvent, message=ImageMessage)
+def handle_image_message(event):
+    message = article_fetching("孕吐")
+    line_bot_api.reply_message(event.reply_token, message)
+
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     #crawl_index_movie()
