@@ -2,8 +2,8 @@
     "type": "carousel",
     "columns": [
         {
-          "thumbnail_image_url": "https://mombaby.tw/wp-content/uploads/2013/09/w313.jpg",
-          "title": "this is menu",
+          "title": "{{title}}",
+          "thumbnailImageUrl": "https://i.imgur.com/z3CP17h.jpg",
           "text": "description",
           "actions": [
               {
@@ -14,7 +14,7 @@
           ]
         },
         {
-          "thumbnail_image_url": "https://mombaby.tw/wp-content/uploads/2013/09/w313.jpg",
+          "thumbnailImageUrl": "https://mombaby.tw/wp-content/uploads/2013/09/w313.jpg",
           "title": "this is menu",
           "text": "description",
           "actions": [
@@ -26,6 +26,6 @@
           ]
         }
     ],
-    "image_aspect_ratio": "rectangle",
-    "image_size": "cover"
+    "imageAspectRatio": "rectangle",
+    "imageSize": "cover"
 }
