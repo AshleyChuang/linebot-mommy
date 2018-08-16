@@ -112,7 +112,7 @@ def article_fetching(tag):
                 )
             ]
         ))
-    carousel_temp = CarouselTemplate(type='carousel', columns=col)
+    carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
     message = TemplateSendMessage(type='template', alt_text='article', template=carousel_temp)
     return message
 
