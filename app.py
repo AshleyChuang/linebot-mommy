@@ -143,7 +143,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒東西可設定"))
     else:
         if event.message.text.startswith("\\"):
-            message = article_fetching()
+            message = article_fetching((event.message.text).replace("\\", ""))
             line_bot_api.reply_message(event.reply_token, message)
         else:
             line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
