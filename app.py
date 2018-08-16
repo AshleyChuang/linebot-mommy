@@ -78,6 +78,19 @@ def baby_talk():
 #def search_info():
 # quick replies
 week = 5
+
+def article_fetching():
+    template = template_env.get_template('article.json')
+    data = template.render(test="ashley")
+    data = eval(data)
+    message = TemplateSendMessage(type='template', alt_text='article', template=ImageCarouselTemplate.new_from_json_dict(data))
+    return message
+
+@handler.add(MessageEvent, message=(ImageMessage))
+def handle_content_message(event):
+    message = article_fetching()
+    line_bot_api.reply_message(event.reply_token, message) # carousel
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     #print(event.source.user_id)
@@ -98,7 +111,11 @@ def handle_message(event):
     elif event.message.text == "設定":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒東西可設定"))
     else:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+        if (event.message.text).startswith('\'):
+            message = article_fetching()
+            line_bot_api.reply_message(event.reply_token, message)
+        else:
+            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
