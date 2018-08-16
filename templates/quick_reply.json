@@ -4,8 +4,48 @@
       "type": "action",
       "action": {
         "type":"message",
+        "label":"{{week}}",
+        "text":"\{{week1}}"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "type":"message",
         "label":"{{info1}}",
         "text":"\{{info1}}"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "type":"message",
+        "label":"{{info2}}",
+        "text":"\{{info2}}"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "type":"message",
+        "label":"{{info3}}",
+        "text":"\{{info3}}"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "type":"message",
+        "label":"{{info4}}",
+        "text":"\{{info4}}"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "type":"message",
+        "label":"{{info5}}",
+        "text":"\{{info5}}"
       }
     },
     {
