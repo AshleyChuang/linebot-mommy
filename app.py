@@ -91,7 +91,7 @@ def article_fetching(tag):
     data = eval(data)
     pprint(data)
     message = TemplateSendMessage(type='template', alt_text='article', template=CarouselTemplate.new_from_json_dict(data))
-    files = [filename for filename in os.listdir('/article/.') if filename.startswith(tag)]
+    files = [filename for filename in os.listdir('./article/') if filename.startswith(tag)]
     col = []
     for file_name in files:
         print(file_name)
