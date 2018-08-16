@@ -84,7 +84,9 @@ week = 5
 
 def article_fetching():
     template = template_env.get_template('article.json')
-    data = template.render(title="lala")
+    with open('article/sickness.json') as f:
+        article = json.load(f)
+    data = template.render(article)
     data = eval(data)
     message = TemplateSendMessage(type='template', alt_text='article', template=CarouselTemplate.new_from_json_dict(data))
     return message

@@ -2,26 +2,36 @@
     "type": "carousel",
     "columns": [
         {
-          "title": "{{title}}",
-          "thumbnailImageUrl": "https://i.imgur.com/z3CP17h.jpg",
-          "text": "description",
+          "title": "{{title1}}",
+          "thumbnailImageUrl": "{{image1}}",
+          "text": "{{description1}}",
           "actions": [
               {
                 "type": "uri",
-                "label": "View detail",
-                "uri": "https://mombaby.tw/article6913.html"
+                "label": "點我觀看",
+                "uri": "{{url1}}"
+              },
+              {
+                "type": "uri",
+                "label": "點我觀看",
+                "uri": "line://msg/text/?{{url1}}"
               }
           ]
         },
         {
-          "title": "this is menu",
-          "thumbnailImageUrl": "https://mombaby.tw/wp-content/uploads/2013/09/w313.jpg",
-          "text": "description",
+          "title": "{{title2}}",
+          "thumbnailImageUrl": "{{image2}}",
+          "text": "{{description2}}",
           "actions": [
               {
                 "type": "uri",
-                "label": "View detail",
-                "uri": "https://mombaby.tw/article6913.html"
+                "label": "點我觀看",
+                "uri": "{{url2}}}"
+              },
+              {
+                "type": "uri",
+                "label": "點我觀看",
+                "uri": "line://msg/text/?{{url2}}"
               }
           ]
         }
