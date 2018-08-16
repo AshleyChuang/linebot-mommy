@@ -14,7 +14,7 @@
               {
                 "type": "uri",
                 "label": "分享",
-                "uri": "line://msg/text/?hihihi"
+                "uri": "line://msg/text/?{{url1}}"
               }
           ]
         },
@@ -31,7 +31,7 @@
               {
                 "type": "uri",
                 "label": "分享",
-                "uri": "line://msg/text/?hihi"
+                "uri": "line://msg/text/?{{url2}}"
               }
           ]
         }
