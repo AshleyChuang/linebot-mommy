@@ -3,6 +3,14 @@
     {
       "type": "action",
       "action": {
+        "type":"message",
+        "label":"{{info1}}",
+        "text":"\{{info1}}"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
         "type": "cameraRoll",
         "label": "Send photo"
       }
