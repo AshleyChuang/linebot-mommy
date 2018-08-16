@@ -5,7 +5,7 @@
       "action": {
         "type":"message",
         "label":"{{week}}",
-        "text":"\{{week1}}"
+        "text":"\{{week}}"
       }
     },
     {

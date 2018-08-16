@@ -2,6 +2,7 @@ from flask import Flask, request, abort
 import os
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
+from pprint import pprint
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -107,8 +108,10 @@ def handle_message(event):
         template = template_env.get_template('quick_reply.json')
         with open('quick_reply/week%s.json' % (str(week))) as f:
             option = json.load(f)
+        pprint(option)
         data = template.render(option)
         data = eval(data)
+        pprint(data)
         message = TextSendMessage(text='Quick reply', quick_reply=QuickReply.new_from_json_dict(data))
         line_bot_api.reply_message(event.reply_token, message)
     elif event.message.text == "設定":
