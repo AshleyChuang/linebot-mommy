@@ -86,8 +86,10 @@ def article_fetching():
     template = template_env.get_template('article.json')
     with open('article/sickness.json') as f:
         article = json.load(f)
+    pprint(article)
     data = template.render(article)
     data = eval(data)
+    pprint(data)
     message = TemplateSendMessage(type='template', alt_text='article', template=CarouselTemplate.new_from_json_dict(data))
     return message
 

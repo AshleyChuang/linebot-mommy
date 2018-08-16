@@ -13,8 +13,8 @@
               },
               {
                 "type": "uri",
-                "label": "點我觀看",
-                "uri": "line://msg/text/?{{url1}}"
+                "label": "分享",
+                "uri": "line://msg/text/?hihihi"
               }
           ]
         },
@@ -30,8 +30,8 @@
               },
               {
                 "type": "uri",
-                "label": "點我觀看",
-                "uri": "line://msg/text/?{{url2}}"
+                "label": "分享",
+                "uri": "line://msg/text/?hihi"
               }
           ]
         }
