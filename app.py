@@ -38,15 +38,17 @@ handler = WebhookHandler('c80566dca51b314332768ca929117904')
 
 @handler.add(FollowEvent)
 def handle_follow(event):
+    message = []
     buttons_template = ButtonsTemplate(
         type='buttons', title="歡迎加入寶寶說",
         text='bla bla bla',
         actions=[URITemplateAction(type = 'uri',label='初次使用設定', uri="line://app/1599707218-4898LaxV")]
         )
-    message = TemplateSendMessage(
+    message.append(TemplateSendMessage(
         type = 'template', alt_text="Welcome",
         template=buttons_template
-        )
+        ))
+    message.append(TextMessage(text='說明bla blab bla~'))
     line_bot_api.reply_message(event.reply_token, message)
 
 @app.route("/callback", methods=['POST'])
