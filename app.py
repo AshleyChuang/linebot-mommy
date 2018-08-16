@@ -90,6 +90,7 @@ def article_fetching(tag):
         with open('article/%s'%(file_name)) as f:
             article = json.load(f)
         pprint(article)
+        print('line://msg/text/?'+(article.get('title')).replace(" ", "%20")+':\n'+article.get('url'))
         col.append(CarouselColumn(
             title=article.get('title'), text=article.get('description'),
             thumbnail_image_url=article.get('image'),
@@ -100,7 +101,7 @@ def article_fetching(tag):
                 ),
                 URITemplateAction(
                     label='分享',
-                    uri='line://msg/text/?'+'"'+(article.get('title')).replace(" ", "%20")+':\n'+article.get('url')+'"'
+                    uri='line://msg/text/?'+(article.get('title')).replace(" ", "%20")+':\n'+article.get('url')
                 )
             ]
         ))
