@@ -91,7 +91,7 @@ def handle_message(event):
     elif event.message.text == "資訊":
         #search_info()
         template = template_env.get_template('quick_reply.json')
-        data = template.render(info1='第'+week+'週')
+        data = template.render(info1='第'+str(week)+'週')
         data = eval(data)
         message = TextSendMessage(text='Quick reply', quick_reply=QuickReply.new_from_json_dict(data))
         line_bot_api.reply_message(event.reply_token, message)
