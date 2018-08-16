@@ -100,7 +100,7 @@ def article_fetching(tag):
                 ),
                 URITemplateAction(
                     label='分享',
-                    uri="line://msg/text/?"+article.get('title')+":\n"+article.get('url')
+                    uri=article.get('url')#"line://msg/text/?"+article.get('title')+":\n"+article.get('url')
                 )
             ]
         ))
