@@ -83,37 +83,37 @@ def baby_talk():
 week = 5
 
 def article_fetching(tag):
-    template = template_env.get_template('article.json')
-    with open('article/sickness.json') as f:
-        article = json.load(f)
-    pprint(article)
-    data = template.render(article)
-    data = eval(data)
-    pprint(data)
-    message = TemplateSendMessage(type='template', alt_text='article', template=CarouselTemplate.new_from_json_dict(data))
+    # template = template_env.get_template('article.json')
+    # with open('article/sickness.json') as f:
+    #     article = json.load(f)
+    # pprint(article)
+    # data = template.render(article)
+    # data = eval(data)
+    # pprint(data)
+    # message = TemplateSendMessage(type='template', alt_text='article', template=CarouselTemplate.new_from_json_dict(data))
     files = [filename for filename in os.listdir('./article/') if filename.startswith(tag)]
-    print(files)
     col = []
     for file_name in files:
         print(file_name)
-    #     with open('article/sickeness.json') as f:
-    #         article = json.load(f)
-    #     col.append(CarouselColumn(
-    #         title=article.get('title'), text=article.get('description'),
-    #         thumbnail_image_url=article.get('image'),
-    #         actions=[
-    #             URITemplateAction(
-    #                 label='點我觀看文章',
-    #                 uri=article.get('url')
-    #             ),
-    #             URITemplateAction(
-    #                 label='分享',
-    #                 uri="line://msg/text/?"+article.get('title')+":"+article.get('description')+article.get('url')
-    #             )
-    #         ]
-    #     ))
-    # carousel_temp = CarouselTemplate(type='carousel', columns=col)
-    # message = TemplateSendMessage(type='template', alt_text='article', template=carousel_temp)
+        with open('article/%s'%(file_name)) as f:
+            article = json.load(f)
+        pprint(article)
+        col.append(CarouselColumn(
+            title=article.get('title'), text=article.get('description'),
+            thumbnail_image_url=article.get('image'),
+            actions=[
+                URITemplateAction(
+                    label='點我觀看文章',
+                    uri=article.get('url')
+                ),
+                URITemplateAction(
+                    label='分享',
+                    uri="line://msg/text/?"+article.get('title')+":"+article.get('description')+article.get('url')
+                )
+            ]
+        ))
+    carousel_temp = CarouselTemplate(type='carousel', columns=col)
+    message = TemplateSendMessage(type='template', alt_text='article', template=carousel_temp)
     return message
 
 @handler.add(MessageEvent, message=(ImageMessage))
