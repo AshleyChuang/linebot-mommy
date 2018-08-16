@@ -119,7 +119,14 @@ def handle_message(event):
         flex_message = baby_talk()
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif event.message.text == "社群":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒有合作對象謝謝"))
+        message = []
+        #template = template_env.get_template('sms.json')
+        message.append(ImagemapSendMessage(baseUrl="https://example.com/bot/images/rm001",
+            altText="This is an imagemap",
+            baseSize=BaseSize(1040,1040),
+            actions=[URITemplateAction(label='點我觀看文章',uri="https://www.google.com")]
+        ))
+        line_bot_api.reply_message(event.reply_token, message)
     elif event.message.text == "資訊":
         #search_info()
         template = template_env.get_template('quick_reply.json')
