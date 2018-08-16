@@ -1,29 +1,33 @@
 {
-    "type": "image_carousel",
+    "type": "carousel",
     "columns": [
         {
-          "imageUrl": "https://example.com/bot/images/item1.jpg",
-          "action": {
-            "type": "postback",
-            "label": "{{test}}",
-            "data": "action=buy&itemid=111"
-          }
+          "thumbnailImageUrl": "https://mombaby.tw/wp-content/uploads/2013/09/w313.jpg",
+          "imageBackgroundColor": "#FFFFFF",
+          "title": "this is menu",
+          "text": "description",
+          "actions": [
+              {
+                "type": "uri",
+                "label": "View detail",
+                "uri": "https://mombaby.tw/article6913.html"
+              }
+          ]
         },
         {
-          "imageUrl": "https://example.com/bot/images/item2.jpg",
-          "action": {
-            "type": "message",
-            "label": "Yes",
-            "text": "yes"
-          }
-        },
-        {
-          "imageUrl": "https://example.com/bot/images/item3.jpg",
-          "action": {
-            "type": "uri",
-            "label": "View detail",
-            "uri": "http://example.com/page/222"
-          }
+          "thumbnailImageUrl": "https://mombaby.tw/wp-content/uploads/2013/09/w313.jpg",
+          "imageBackgroundColor": "#FFFFFF",
+          "title": "this is menu",
+          "text": "description",
+          "actions": [
+              {
+                "type": "uri",
+                "label": "View detail",
+                "uri": "https://mombaby.tw/article6913.html"
+              }
+          ]
         }
-    ]
+    ],
+    "imageAspectRatio": "rectangle",
+    "imageSize": "cover"
 }

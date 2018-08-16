@@ -3,6 +3,7 @@ import os
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 from pprint import pprint
+#import article
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -85,7 +86,7 @@ def article_fetching():
     template = template_env.get_template('article.json')
     data = template.render(test="ashley")
     data = eval(data)
-    message = TemplateSendMessage(type='template', alt_text='article', template=ImageCarouselTemplate.new_from_json_dict(data))
+    message = TemplateSendMessage(type='template', alt_text='article', template=CarouselTemplate.new_from_json_dict(data))
     return message
 
 @handler.add(MessageEvent, message=(ImageMessage))
