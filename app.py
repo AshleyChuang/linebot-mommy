@@ -90,31 +90,11 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒有合作對象謝謝"))
     elif event.message.text == "資訊":
         #search_info()
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(
-                text='Quick reply',
-                quick_reply=QuickReply(
-                    items=[
-                        QuickReplyButton(
-                            action=PostbackAction(label="label1", data="data1")
-                        ),
-                        QuickReplyButton(
-                            action=MessageAction(label="label2", text="text2")
-                        ),
-                        QuickReplyButton(
-                            action=DatetimePickerAction(label="label3",
-                                                        data="data3",
-                                                        mode="date")
-                        ),
-                        QuickReplyButton(
-                            action=CameraAction(label="label4")
-                        ),
-                        QuickReplyButton(
-                            action=CameraRollAction(label="label5")
-                        ),
-                        QuickReplyButton(
-                            action=LocationAction(label="label6")
-                        )
-                    ])))
+        template = template_env.get_template('quick_reply.json')
+        #data = template.render(hello="yoyo")
+        data = eval(data)
+        message = TextSendMessage(text='Quick reply', quick_reply=QuickReply.new_from_json_dict(data))
+        line_bot_api.reply_message(event.reply_token, message)
     elif event.message.text == "設定":
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="沒東西可設定"))
     else:
