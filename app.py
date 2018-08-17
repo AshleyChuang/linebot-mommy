@@ -80,8 +80,8 @@ def baby_talk(user_id):
     if user_id in user2baby_dict:
         update_time = user2baby_dict[user_id]
         print("timedelta")
-        print((current_time - update_time).total_seconds)
-        if (current_time - update_time).total_seconds >= 6000:
+        print((current_time - update_time).total_seconds())
+        if (current_time - update_time).total_seconds() >= 6000:
             user2baby_dict[user_id] = current_time
             file = 'baby_flex.json'
         else:
