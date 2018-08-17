@@ -77,14 +77,13 @@ def callback():
 def remind():
     if not request.content_type == 'application/json':
         abort(401)
-'
+
     data = request.get_json()
     user_id = data.get('user_id')
     if not user_id:
         abort(401)
 
     print(user_id)
-
     return 'OK'
 
 user2baby_dict = {}
