@@ -110,6 +110,28 @@ def article_fetching(tag):
     message = TemplateSendMessage(type='template', alt_text='article', template=carousel_temp)
     return message
 
+def get_line_group(dir_name):
+    files = [filename for filename in os.listdir(dir_name)]
+    col = []
+    for file_name in files:
+        print(file_name)
+        with open('%s%s'%(dir_name,file_name)) as f:
+            group = json.load(f)
+        pprint(group)
+        col.append(CarouselColumn(
+            title=group.get('title'), text=group.get('description'),
+            thumbnail_image_url=group.get('image'),
+            actions=[
+                URITemplateAction(
+                    label='加入群組',
+                    uri=group.get('url')
+                )
+            ]
+        ))
+    carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
+    message = TemplateSendMessage(type='template', alt_text='line_group', template=carousel_temp)
+    return message
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     #print(event.source.user_id)
@@ -155,25 +177,7 @@ def handle_message(event):
             dir_name = './line_group/blogger/'
         elif event.message.text == "$其他類":
             dir_name = './line_group/others/'
-        files = [filename for filename in os.listdir(dir_name)]
-        col = []
-        for file_name in files:
-            print(file_name)
-            with open('%s%s'%(dir_name,file_name)) as f:
-                group = json.load(f)
-            pprint(group)
-            col.append(CarouselColumn(
-                title=group.get('title'), text=group.get('description'),
-                thumbnail_image_url=group.get('image'),
-                actions=[
-                    URITemplateAction(
-                        label='加入群組',
-                        uri=group.get('url')
-                    )
-                ]
-            ))
-        carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
-        message = TemplateSendMessage(type='template', alt_text='line_group', template=carousel_temp)
+        message = get_line_group(dir_name)
         line_bot_api.reply_message(event.reply_token,message)
     else:
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))

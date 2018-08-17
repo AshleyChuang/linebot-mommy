@@ -1,17 +1,101 @@
 {
   "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "http://pic.90sjimg.com/design/00/65/00/11/58c68a8745a08.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "fit",
+    "margin": "none",
+    "action": {
+      "type": "uri",
+      "label": "按鈕",
+      "uri": ""
+    }
+  },
   "body": {
     "type": "box",
     "layout": "vertical",
     "contents": [
       {
-        "type": "text",
-        "text": "{{hello}}"
-      },
-      {
-        "type": "text",
-        "text": "world"
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "寶寶最近會開始踢媽媽的肚子，媽媽辛苦了～胖嘟嘟～",
+                "weight": "regular",
+                "wrap": true,
+                "color": "#666666",
+                "flex": 5,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "sm",
+            "margin": "md"
+          }
+        ],
+        "flex": 1,
+        "spacing": "sm",
+        "margin": "lg"
       }
-    ]
+    ],
+    "flex": 1,
+    "spacing": "none",
+    "margin": "md"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "postback",
+          "label": "查看相關文章",
+          "data": "",
+          "displayText": ""
+        },
+        "flex": 1,
+        "margin": "xs",
+        "height": "sm",
+        "style": "link",
+        "color": "#42659a",
+        "gravity": "top"
+      }
+    ],
+    "flex": 0,
+    "spacing": "sm",
+    "margin": "md"
+  },
+  "styles": {
+    "header": {
+      "backgroundColor": "#FFFFFF",
+      "separator": false,
+      "separatorColor": "#FFFFFF"
+    },
+    "hero": {
+      "backgroundColor": "#FFFFFF",
+      "separator": false,
+      "separatorColor": "#FFFFFF"
+    },
+    "body": {
+      "backgroundColor": "#FFFFFF",
+      "separator": false,
+      "separatorColor": "#FFFFFF"
+    },
+    "footer": {
+      "backgroundColor": "#FFFFFF",
+      "separator": false,
+      "separatorColor": "#FFFFFF"
+    }
   }
 }
