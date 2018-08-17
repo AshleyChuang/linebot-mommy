@@ -73,6 +73,12 @@ def callback():
 
     return 'OK'
 
+@app.route("/remind", methods=['POST'])
+def remind():
+    body = request.get_data(as_text=True)
+    print(body)
+    #body_dict = json.load(body)
+
 user2baby_dict = {}
 
 def baby_talk(user_id):
