@@ -14,7 +14,7 @@ from linebot.exceptions import (
 from linebot.models import (
     FollowEvent,MessageEvent, PostbackEvent, TextMessage, ImageMessage,
     TextSendMessage,TemplateSendMessage, ButtonsTemplate, ImagemapSendMessage,BaseSize,
-    PostbackTemplateAction, MessageTemplateAction,URITemplateAction,
+    PostbackTemplateAction, MessageTemplateAction,URITemplateAction,MessageImagemapAction,ImagemapArea,
     ConfirmTemplate, CarouselTemplate, CarouselColumn,
     ImageCarouselTemplate, ImageCarouselColumn,
     RichMenu,RichMenuSize, RichMenuArea, RichMenuBounds,
@@ -119,13 +119,13 @@ def handle_message(event):
         flex_message = baby_talk()
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif event.message.text == "社群":
-        message = []
+
         #template = template_env.get_template('sms.json')
-        message.append(ImagemapSendMessage(baseUrl="https://example.com/bot/images/rm001",
+        message=ImagemapSendMessage(baseUrl="https://example.com/bot/images/rm001",
             altText="This is an imagemap",
             baseSize=BaseSize(1040,1040),
-            actions=[URITemplateAction(label='點我觀看文章',uri="https://www.google.com")]
-        ))
+            actions=[MessageImagemapAction(type='message',text="gogogo", area=ImagemapArea(0, 0, 1040, 1040))]
+        )
         line_bot_api.reply_message(event.reply_token, message)
     elif event.message.text == "資訊":
         #search_info()
