@@ -78,6 +78,7 @@ def remind():
     body = request.get_data(as_text=True)
     print(body)
     #body_dict = json.load(body)
+    return 'OK'
 
 user2baby_dict = {}
 
