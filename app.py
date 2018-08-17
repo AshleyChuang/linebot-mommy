@@ -121,12 +121,13 @@ def handle_message(event):
     elif event.message.text == "社群":
         print("社群")
         #template = template_env.get_template('sms.json')
-        message=ImagemapSendMessage(baseUrl="https://imgur.com/z3CP17h.jpg",
-            altText="This is an imagemap",
-            baseSize=BaseSize(1040,1040),
+        imagemap_message = ImagemapSendMessage(
+            baseUrl="https://imgur.com/z3CP17h.jpg",
+            alt_text="This is an imagemap",
+            base_size=BaseSize(1040,1040),
             actions=[MessageImagemapAction(type='message',text="gogogo", area=ImagemapArea(0, 0, 1040, 1040))]
         )
-        line_bot_api.reply_message(event.reply_token, message)
+        line_bot_api.reply_message(event.reply_token, imagemap_message)
     elif event.message.text == "資訊":
         #search_info()
         template = template_env.get_template('quick_reply.json')

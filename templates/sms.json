@@ -1,6 +1,6 @@
 {
   "type": "imagemap",
-  "baseUrl": "https://example.com/bot/images/rm001",
+  "baseUrl": "https://imgur.com/z3CP17h.jpg",
   "altText": "This is an imagemap",
   "baseSize": {
       "height": 1040,
@@ -9,7 +9,7 @@
   "actions": [
       {
           "type": "uri",
-          "linkUri": "https://example.com/",
+          "linkUri": "https://imgur.com/z3CP17h.jpg",
           "area": {
               "x": 0,
               "y": 0,
