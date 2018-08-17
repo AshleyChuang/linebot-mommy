@@ -120,19 +120,20 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif event.message.text == "社群":
         print("社群")
-        #template = template_env.get_template('sms.json')
-        imagemap_message = ImagemapSendMessage(
+        message = []
+        message.append(TextSendMessage(text="請選擇想加入的社群分類～"))
+        message.append(ImagemapSendMessage(
             base_url="https://imgur.com/z3CP17h.jpg",
             alt_text="This is an imagemap",
             base_size=BaseSize(1040,1040),
             actions=[
-                MessageImagemapAction(type='message',text="醫生", area=ImagemapArea(0, 0, 520, 520)),
-                MessageImagemapAction(type='message',text="媽咪", area=ImagemapArea(0, 520, 520, 520)),
-                MessageImagemapAction(type='message',text="其他類", area=ImagemapArea(520, 0, 520, 520)),
-                MessageImagemapAction(type='message',text="部落客", area=ImagemapArea(520, 520, 520, 520))
+                MessageImagemapAction(type='message',text="$媽咪", area=ImagemapArea(0, 0, 520, 520)),
+                MessageImagemapAction(type='message',text="$醫生", area=ImagemapArea(0, 520, 520, 520)),
+                MessageImagemapAction(type='message',text="$部落客", area=ImagemapArea(520, 0, 520, 520)),
+                MessageImagemapAction(type='message',text="$其他類", area=ImagemapArea(520, 520, 520, 520))
             ]
-        )
-        line_bot_api.reply_message(event.reply_token, imagemap_message)
+        ))
+        line_bot_api.reply_message(event.reply_token, message)
     elif event.message.text == "資訊":
         #search_info()
         template = template_env.get_template('quick_reply.json')
@@ -142,12 +143,41 @@ def handle_message(event):
         data = eval(data)
         message = TextSendMessage(text='請輸入欲搜尋文章的關鍵字～', quick_reply=QuickReply.new_from_json_dict(data))
         line_bot_api.reply_message(event.reply_token, message)
+    elif event.message.text.startswith("\\"):
+        message = article_fetching((event.message.text).replace("\\", ""))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif event.message.text.startswith("$"):
+        if event.message.text == "$醫生":
+            dir_name = './line_group/doctor/'
+        elif event.message.text == "$媽咪":
+            dir_name = './line_group/mommy/'
+        elif event.message.text == "$部落客":
+            dir_name = './line_group/blogger/'
+        elif event.message.text == "$其他類":
+            dir_name = './line_group/others/'
+        files = [filename for filename in os.listdir(dir_name)]
+        col = []
+        for file_name in files:
+            print(file_name)
+            with open('%s%s'%(dir_name,file_name)) as f:
+                group = json.load(f)
+            pprint(group)
+            col.append(CarouselColumn(
+                title=group.get('title'), text=group.get('description'),
+                thumbnail_image_url=group.get('image'),
+                actions=[
+                    URITemplateAction(
+                        label='加入群組',
+                        uri=group.get('url')
+                    )
+                ]
+            ))
+        carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
+        message = TemplateSendMessage(type='template', alt_text='article', template=carousel_temp)
+
+        line_bot_api.reply_message(event.reply_token,message)
     else:
-        if event.message.text.startswith("\\"):
-            message = article_fetching((event.message.text).replace("\\", ""))
-            line_bot_api.reply_message(event.reply_token, message)
-        else:
-            line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
 
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
