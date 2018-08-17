@@ -122,7 +122,7 @@ def handle_message(event):
         print("社群")
         #template = template_env.get_template('sms.json')
         imagemap_message = ImagemapSendMessage(
-            baseUrl="https://imgur.com/z3CP17h.jpg",
+            base_url="https://imgur.com/z3CP17h.jpg",
             alt_text="This is an imagemap",
             base_size=BaseSize(1040,1040),
             actions=[MessageImagemapAction(type='message',text="gogogo", area=ImagemapArea(0, 0, 1040, 1040))]
