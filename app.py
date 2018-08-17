@@ -75,9 +75,16 @@ def callback():
 
 @app.route("/remind", methods=['POST'])
 def remind():
-    body = request.get_data(as_text=True)
-    print(body)
-    #body_dict = json.load(body)
+    if not request.content_type == 'application/json':
+        return response('failed', 'Content-type must be application/json', 401)
+
+    data = request.get_json()
+    user_id = data.get('user_id')
+    if not user_id:
+        return response('failed', 'No user_id attribute found', 401)
+
+    print(user_id)
+    
     return 'OK'
 
 user2baby_dict = {}
