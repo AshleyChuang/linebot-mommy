@@ -79,22 +79,22 @@
   "styles": {
     "header": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     },
     "hero": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     },
     "body": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     },
     "footer": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     }
   }
