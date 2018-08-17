@@ -6,12 +6,7 @@
     "size": "full",
     "aspectRatio": "20:13",
     "aspectMode": "fit",
-    "margin": "none",
-    "action": {
-      "type": "uri",
-      "label": "按鈕",
-      "uri": ""
-    }
+    "margin": "none"
   },
   "body": {
     "type": "box",
@@ -59,10 +54,9 @@
       {
         "type": "button",
         "action": {
-          "type": "postback",
+          "type": "message",
           "label": "查看相關文章",
-          "data": "",
-          "displayText": ""
+          "displayText": "資訊"
         },
         "flex": 1,
         "margin": "xs",
