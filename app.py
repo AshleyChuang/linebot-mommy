@@ -119,9 +119,9 @@ def handle_message(event):
         flex_message = baby_talk()
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif event.message.text == "社群":
-
+        print("社群")
         #template = template_env.get_template('sms.json')
-        message=ImagemapSendMessage(baseUrl="https://example.com/bot/images/rm001",
+        message=ImagemapSendMessage(baseUrl="https://imgur.com/z3CP17h.jpg",
             altText="This is an imagemap",
             baseSize=BaseSize(1040,1040),
             actions=[MessageImagemapAction(type='message',text="gogogo", area=ImagemapArea(0, 0, 1040, 1040))]
