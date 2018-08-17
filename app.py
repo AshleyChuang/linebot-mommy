@@ -77,8 +77,10 @@ user2baby_dict = {}
 
 def baby_talk(user_id):
     current_time = datetime.datetime.now()
+    print(current_time)
     if user_id in user2baby_dict:
         update_time = user2baby_dict[user_id]
+        print(update_time)
         print("timedelta")
         print((current_time - update_time).total_seconds())
         if (current_time - update_time).total_seconds() >= 6000:
