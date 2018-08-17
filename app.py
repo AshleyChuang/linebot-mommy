@@ -76,8 +76,8 @@ def callback():
 user2baby_dict = {}
 
 def baby_talk(user_id):
+    current_time = datetime.datetime.now()
     if user_id in user2baby_dict:
-        current_time = datetime.datetime.now()
         update_time = user2baby_dict[user_id]
         print("timedelta")
         print((current_time - update_time).total_seconds)
@@ -87,6 +87,7 @@ def baby_talk(user_id):
         else:
             file = 'baby_flex2.json'
     else:
+        user2baby_dict[user_id] = current_time
         file = 'baby_flex.json'
     template = template_env.get_template(file)
     data = template.render(hello="yoyo")
@@ -150,7 +151,7 @@ def handle_message(event):
     profile = line_bot_api.get_profile(event.source.user_id)
     user_name = profile.display_name
     if event.message.text == "寶寶":
-        flex_message = baby_talk()
+        flex_message = baby_talk(event.source.user_id)
         line_bot_api.reply_message(event.reply_token, flex_message)
     elif event.message.text == "社群":
         print("社群")
