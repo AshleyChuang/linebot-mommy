@@ -1,0 +1,96 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://i.imgur.com/gaD5Ou4.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "fit",
+    "margin": "none"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "ㄌㄩㄝㄌㄩㄝㄌㄩㄝ",
+                "weight": "regular",
+                "wrap": True,
+                "color": "#666666",
+                "flex": 5,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "sm",
+            "margin": "md"
+          }
+        ],
+        "flex": 1,
+        "spacing": "sm",
+        "margin": "lg"
+      }
+    ],
+    "flex": 1,
+    "spacing": "none",
+    "margin": "md"
+  },
+  "footer": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "查看相關文章",
+          "displayText": "資訊",
+          "text": "資訊"
+        },
+        "flex": 1,
+        "margin": "xs",
+        "height": "sm",
+        "style": "link",
+        "color": "#42659a",
+        "gravity": "top"
+      }
+    ],
+    "flex": 0,
+    "spacing": "sm",
+    "margin": "md"
+  },
+  "styles": {
+    "header": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "hero": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "body": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "footer": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    }
+  }
+}

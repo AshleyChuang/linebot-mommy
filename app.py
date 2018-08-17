@@ -3,7 +3,7 @@ import os
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
 from pprint import pprint
-#import article
+import datetime
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -73,15 +73,27 @@ def callback():
 
     return 'OK'
 
-def baby_talk():
-    template = template_env.get_template('baby_flex.json')
+user2baby_dict = {}
+
+def baby_talk(user_id):
+    if user_id in user2baby_dict:
+        current_time = datetime.datetime.now()
+        update_time = user2baby_dict[user_id]
+        print("timedelta")
+        print((current_time - update_time).total_seconds)
+        if (current_time - update_time).total_seconds >= 6000:
+            user2baby_dict[user_id] = current_time
+            file = 'baby_flex.json'
+        else:
+            file = 'baby_flex2.json'
+    else:
+        file = 'baby_flex.json'
+    template = template_env.get_template(file)
     data = template.render(hello="yoyo")
     data = eval(data)
     flex_message = FlexSendMessage(alt_text='tag',contents=BubbleContainer.new_from_json_dict(data))
     return flex_message
 
-#def search_info():
-# quick replies
 week = 5
 
 def article_fetching(tag):
