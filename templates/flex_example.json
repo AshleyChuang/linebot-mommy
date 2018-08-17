@@ -29,7 +29,7 @@
                 "type": "text",
                 "text": "寶寶最近會開始踢媽媽的肚子，媽媽辛苦了～胖嘟嘟～",
                 "weight": "regular",
-                "wrap": true,
+                "wrap": True,
                 "color": "#666666",
                 "flex": 5,
                 "size": "sm",
