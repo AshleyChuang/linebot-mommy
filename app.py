@@ -200,9 +200,10 @@ def get_line_group(dir_name):
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    #print(event.source.user_id)
     profile = line_bot_api.get_profile(event.source.user_id)
     user_name = profile.display_name
+    print(user_name + " :")
+    print(event.source.user_id)
     if event.message.text == "寶寶":
         flex_message = baby_talk(event.source.user_id)
         line_bot_api.reply_message(event.reply_token, flex_message)
