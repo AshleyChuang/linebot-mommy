@@ -13,7 +13,7 @@ from linebot.exceptions import (
 )
 from linebot.models import (
     FollowEvent,MessageEvent, PostbackEvent, TextMessage, ImageMessage,
-    TextSendMessage,TemplateSendMessage, ButtonsTemplate, ImagemapSendMessage,BaseSize,
+    TextSendMessage,TemplateSendMessage, ButtonsTemplate, ImagemapSendMessage, VideoSendMessage, BaseSize,
     PostbackTemplateAction, MessageTemplateAction,URITemplateAction,MessageImagemapAction,ImagemapArea,
     ConfirmTemplate, CarouselTemplate, CarouselColumn,
     ImageCarouselTemplate, ImageCarouselColumn,
@@ -38,6 +38,7 @@ handler = WebhookHandler('c80566dca51b314332768ca929117904')
 
 @handler.add(FollowEvent)
 def handle_follow(event):
+    print(event.source.user_id)
     message = []
     buttons_template = ButtonsTemplate(
         type='buttons', title="歡迎加入寶寶說",
@@ -73,8 +74,8 @@ def callback():
 
     return 'OK'
 
-@app.route("/remind", methods=['POST'])
-def remind():
+@app.route("/mommy", methods=['POST'])
+def remind_nexttime_examine():
     if not request.content_type == 'application/json':
         abort(401)
 
@@ -82,8 +83,45 @@ def remind():
     user_id = data.get('user_id')
     if not user_id:
         abort(401)
-
     print(user_id)
+    profile = line_bot_api.get_profile(user_id)
+    user_name = profile.display_name
+    line_bot_api.push_message(user_id, TextSendMessage(text='下次產檢bla bla bla'))
+    return 'OK'
+
+@app.route("/reminder", methods=['POST'])
+def reminder():
+    if not request.content_type == 'application/json':
+        abort(401)
+
+    data = request.get_json()
+    user_id = data.get('user_id')
+    if not user_id:
+        abort(401)
+    print(user_id)
+    profile = line_bot_api.get_profile(user_id)
+    user_name = profile.display_name
+    line_bot_api.push_message(user_id, TextSendMessage(text='小幫手貼心提醒'))
+    return 'OK'
+
+@app.route('/video', methods=['POST'])
+def post_video:
+    if not request.content_type == 'application/json':
+        abort(401)
+
+    data = request.get_json()
+    user_id = data.get('user_id')
+    if not user_id:
+        abort(401)
+    print(user_id)
+    profile = line_bot_api.get_profile(user_id)
+    user_name = profile.display_name
+    line_bot_api.push_message(user_id,
+        VideoSendMessage(
+            original_content_url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            preview_image_url='https://image.freepik.com/free-photo/doctor-smiling-with-stethoscope_1154-36.jpg'
+        )
+    )
     return 'OK'
 
 user2baby_dict = {}
