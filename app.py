@@ -220,6 +220,7 @@ def handle_message(event):
     user_name = profile.display_name
     print(user_name + " :")
     print(event.source.user_id)
+    print(event.message.text)
     if event.message.text == "寶寶":
         flex_message = baby_talk(event.source.user_id)
         line_bot_api.reply_message(event.reply_token, flex_message)
