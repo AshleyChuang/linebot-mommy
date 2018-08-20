@@ -118,7 +118,7 @@ def post_video():
     user_name = profile.display_name
     line_bot_api.push_message(user_id,
         VideoSendMessage(
-            original_content_url='http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+            original_content_url='https://cdn-b-east.streamable.com/video/mp4/hb4gz.mp4?token=AxiKEiqHPC4HpjwULTNNGA&expires=1534742616',
             preview_image_url='https://image.freepik.com/free-photo/doctor-smiling-with-stethoscope_1154-36.jpg'
         )
     )
