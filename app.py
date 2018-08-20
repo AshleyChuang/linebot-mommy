@@ -99,12 +99,15 @@ def reminder():
 
     data = request.get_json()
     user_id = data.get('user_id')
+    year = data.get('year')
+    month = data.get('month')
+    date = data.get('date')
     if not user_id:
         abort(401)
     print(user_id)
     profile = line_bot_api.get_profile(user_id)
     user_name = profile.display_name
-    line_bot_api.push_message(user_id, TextSendMessage(text='小幫手貼心提醒'))
+    line_bot_api.push_message(user_id, TextSendMessage(text='Hi, %s 媽咪！下次產檢在%s/%s/%s喔～以下為下次產檢的注意事項...bla bla bla' % (user_id, year, month, date)))
     return 'OK'
 
 @app.route('/video', methods=['POST'])
