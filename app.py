@@ -74,6 +74,22 @@ def callback():
 
     return 'OK'
 
+@app.route("/send_message", methods=['POST'])
+def send_message():
+    if not request.content_type == 'application/json':
+        abort(401)
+
+    data = request.get_json()
+    user_id = data.get('user_id')
+    message = data.get('message')
+    if not user_id:
+        abort(401)
+    print(user_id)
+    profile = line_bot_api.get_profile(user_id)
+    user_name = profile.display_name
+    line_bot_api.push_message(user_id, TextSendMessage(text='Hi %s, %s'%(user_name, message)))
+    return 'OK'
+
 @app.route("/mommy", methods=['POST'])
 def remind_nexttime_examine():
     if not request.content_type == 'application/json':
@@ -86,7 +102,7 @@ def remind_nexttime_examine():
     print(user_id)
     profile = line_bot_api.get_profile(user_id)
     user_name = profile.display_name
-    line_bot_api.push_message(user_id, TextSendMessage(text='下次產檢bla bla bla'))
+    line_bot_api.push_message(user_id, TextSendMessage(text='Hi! %s, 下次產檢bla bla bla'%(user_name)))
     return 'OK'
 
 @app.route("/reminder", methods=['POST'])
