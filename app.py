@@ -225,7 +225,7 @@ def handle_message(event):
     if event.message.text == "寶寶":
         flex_message = baby_talk(event.source.user_id)
         line_bot_api.reply_message(event.reply_token, flex_message)
-    elif event.message.text == "社群":
+    elif event.message.text == "媽媽論壇":
         print("社群")
         message = []
         message.append(TextSendMessage(text="請選擇想加入的社群分類～"))
@@ -241,7 +241,7 @@ def handle_message(event):
             ]
         ))
         line_bot_api.reply_message(event.reply_token, message)
-    elif event.message.text == "資訊":
+    elif event.message.text == "大補帖":
         #search_info()
         template = template_env.get_template('quick_reply.json')
         with open('quick_reply/week%s.json' % (str(week))) as f:
