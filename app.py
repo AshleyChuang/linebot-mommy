@@ -1,4 +1,5 @@
 from flask import Flask, request, abort
+from flask_cors import CORS
 import os
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 import json
@@ -30,6 +31,7 @@ template_env = Environment(
 )
 
 app = Flask(__name__)
+CORS(app)
 
 # Channel Access Token
 line_bot_api = LineBotApi('MIhM1rtBQmPWHHUG0P6WT/q9sOeoe9PTM3NdfLOnI74qp4DtLTHR0WQydDUFbxe868ae78yTpWcRsVQSZJ2FWtV7w+Zqy+Uzomv0jKYFUia8+yT6DKKNd2InF61rFJlQWoPfgeaLzCfQ+JDRNIGFxQdB04t89/1O/w1cDnyilFU=')
@@ -88,21 +90,6 @@ def send_message():
     profile = line_bot_api.get_profile(user_id)
     user_name = profile.display_name
     line_bot_api.push_message(user_id, TextSendMessage(text='Hi %s, %s'%(user_name, message)))
-    return 'OK'
-
-@app.route("/mommy", methods=['POST'])
-def remind_nexttime_examine():
-    if not request.content_type == 'application/json':
-        abort(401)
-
-    data = request.get_json()
-    user_id = data.get('user_id')
-    if not user_id:
-        abort(401)
-    print(user_id)
-    profile = line_bot_api.get_profile(user_id)
-    user_name = profile.display_name
-    line_bot_api.push_message(user_id, TextSendMessage(text='Hi! %s, 下次產檢bla bla bla'%(user_name)))
     return 'OK'
 
 @app.route("/reminder", methods=['POST'])
