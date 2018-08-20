@@ -132,12 +132,13 @@ def post_video():
     print(user_id)
     profile = line_bot_api.get_profile(user_id)
     user_name = profile.display_name
-    line_bot_api.push_message(user_id,
-        VideoSendMessage(
-            original_content_url='https://cdn-b-east.streamable.com/video/mp4/hb4gz.mp4?token=AxiKEiqHPC4HpjwULTNNGA&expires=1534742616',
-            preview_image_url='https://image.freepik.com/free-photo/doctor-smiling-with-stethoscope_1154-36.jpg'
-        )
-    )
+    message = []
+    message.append(TextSendMessage(text="寶寶已經七個月囉～%s媽咪來回顧一下寶寶的成長吧！"%(user_name)))
+    message.append(VideoSendMessage(
+        original_content_url='https://cdn-b-east.streamable.com/video/mp4/hb4gz.mp4?token=AxiKEiqHPC4HpjwULTNNGA&expires=1534742616',
+        preview_image_url='https://image.freepik.com/free-photo/doctor-smiling-with-stethoscope_1154-36.jpg'
+    ))
+    line_bot_api.push_message(user_id, message)
     return 'OK'
 
 user2baby_dict = {}
