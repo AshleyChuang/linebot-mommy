@@ -105,7 +105,7 @@ def reminder():
     return 'OK'
 
 @app.route('/video', methods=['POST'])
-def post_video:
+def post_video():
     if not request.content_type == 'application/json':
         abort(401)
 
