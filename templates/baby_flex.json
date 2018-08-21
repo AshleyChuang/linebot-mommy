@@ -2,7 +2,7 @@
   "type": "bubble",
   "hero": {
     "type": "image",
-    "url": "https://i.imgur.com/gaD5Ou4.png",
+    "url": "https://imgur.com/eG3JDM0.png",
     "size": "full",
     "aspectRatio": "20:13",
     "aspectMode": "fit",
@@ -22,74 +22,50 @@
             "contents": [
               {
                 "type": "text",
-                "text": "寶寶最近會開始踢媽媽的肚子，媽媽辛苦了～胖嘟嘟～",
+                "text": "寶寶目前耳朵正位於頭部下方，隨著頭部漸漸長大，耳朵會移至正確位置。這個禮拜結束之後，外耳會發育完全，我很快就可以聽到媽咪的聲音了哦﹗",
                 "weight": "regular",
-                "wrap": True,
+                "wrap": true,
                 "color": "#666666",
                 "flex": 5,
-                "size": "sm",
+                "size": "md",
                 "margin": "none",
                 "align": "start",
-                "gravity": "top"
+                "gravity": "center"
               }
             ],
             "flex": 1,
-            "spacing": "sm",
-            "margin": "md"
+            "spacing": "none",
+            "margin": "none"
           }
         ],
         "flex": 1,
-        "spacing": "sm",
-        "margin": "lg"
+        "spacing": "none",
+        "margin": "none"
       }
     ],
     "flex": 1,
     "spacing": "none",
     "margin": "md"
   },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "button",
-        "action": {
-          "type": "message",
-          "label": "查看相關文章",
-          "displayText": "大補帖",
-          "text": "大補帖"
-        },
-        "flex": 1,
-        "margin": "xs",
-        "height": "sm",
-        "style": "link",
-        "color": "#42659a",
-        "gravity": "top"
-      }
-    ],
-    "flex": 0,
-    "spacing": "sm",
-    "margin": "md"
-  },
   "styles": {
     "header": {
       "backgroundColor": "#FFFFFF",
-      "separator": False,
+      "separator": false,
       "separatorColor": "#FFFFFF"
     },
     "hero": {
       "backgroundColor": "#FFFFFF",
-      "separator": False,
+      "separator": false,
       "separatorColor": "#FFFFFF"
     },
     "body": {
       "backgroundColor": "#FFFFFF",
-      "separator": False,
+      "separator": false,
       "separatorColor": "#FFFFFF"
     },
     "footer": {
       "backgroundColor": "#FFFFFF",
-      "separator": False,
+      "separator": false,
       "separatorColor": "#FFFFFF"
     }
   }
