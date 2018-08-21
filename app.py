@@ -152,16 +152,16 @@ def baby_talk(user_id):
         print((current_time - update_time).total_seconds())
         if (current_time - update_time).total_seconds() >= 600:
             user2baby_dict[user_id] = current_time
-            file = 'baby_flex.json'
+            file = 'baby_week10.json'
         else:
-            file = 'baby_flex2.json'
+            file = 'baby_week10_meaningless.json'
     else:
         user2baby_dict[user_id] = current_time
-        file = 'baby_flex.json'
+        file = 'baby_week10.json'
     template = template_env.get_template(file)
     data = template.render(hello="yoyo")
     data = eval(data)
-    flex_message = FlexSendMessage(alt_text='tag',contents=BubbleContainer.new_from_json_dict(data))
+    flex_message = FlexSendMessage(alt_text='baby_message',contents=BubbleContainer.new_from_json_dict(data))
     return flex_message
 
 week = 5

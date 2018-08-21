@@ -2,7 +2,7 @@
   "type": "bubble",
   "hero": {
     "type": "image",
-    "url": "https://i.imgur.com/gaD5Ou4.png",
+    "url": "https://imgur.com/ZGR4531.png",
     "size": "full",
     "aspectRatio": "20:13",
     "aspectMode": "fit",
@@ -22,53 +22,29 @@
             "contents": [
               {
                 "type": "text",
-                "text": "ㄌㄩㄝㄌㄩㄝㄌㄩㄝ",
+                "text": "寶寶現在大概有13厘米長，重170克，像一顆蘋果一樣重。我喜歡把臍帶當做自己的玩具，我會去拉或是抓它，媽媽不用擔心我會傷害到自己，雖然我現在還是個胎兒，但我已經知道怎麼保護自己了～",
                 "weight": "regular",
                 "wrap": True,
                 "color": "#666666",
                 "flex": 5,
-                "size": "sm",
+                "size": "md",
                 "margin": "none",
                 "align": "start",
-                "gravity": "top"
+                "gravity": "center"
               }
             ],
             "flex": 1,
-            "spacing": "sm",
-            "margin": "md"
+            "spacing": "none",
+            "margin": "none"
           }
         ],
         "flex": 1,
-        "spacing": "sm",
-        "margin": "lg"
+        "spacing": "none",
+        "margin": "none"
       }
     ],
     "flex": 1,
     "spacing": "none",
-    "margin": "md"
-  },
-  "footer": {
-    "type": "box",
-    "layout": "vertical",
-    "contents": [
-      {
-        "type": "button",
-        "action": {
-          "type": "message",
-          "label": "查看相關文章",
-          "displayText": "大補帖",
-          "text": "大補帖"
-        },
-        "flex": 1,
-        "margin": "xs",
-        "height": "sm",
-        "style": "link",
-        "color": "#42659a",
-        "gravity": "top"
-      }
-    ],
-    "flex": 0,
-    "spacing": "sm",
     "margin": "md"
   },
   "styles": {

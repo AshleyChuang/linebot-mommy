@@ -5,12 +5,12 @@
     "contents": [
       {
         "type": "text",
-        "text": "REMINDER",
+        "text": "貼心小提醒",
         "weight": "bold",
         "wrap": False,
-        "color": "#FA5858",
+        "color": "#e67a77",
         "flex": 1,
-        "size": "sm",
+        "size": "md",
         "margin": "none",
         "align": "start",
         "gravity": "top"
@@ -75,19 +75,19 @@
             "contents": [
               {
                 "type": "text",
-                "text": "體重、血壓",
+                "text": "健保給付項目",
                 "weight": "regular",
                 "wrap": False,
-                "color": "#b85823",
+                "color": "#830905",
                 "flex": 0,
-                "size": "sm",
+                "size": "md",
                 "margin": "none",
                 "align": "start",
                 "gravity": "top"
               },
               {
                 "type": "text",
-                "text": "懷孕7~8個月，準媽媽體重約每週增加0.5kg",
+                "text": "",
                 "weight": "regular",
                 "wrap": False,
                 "color": "#4a4a4a",
@@ -108,10 +108,109 @@
             "contents": [
               {
                 "type": "text",
+                "text": "問診",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#e67a77",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "家族本身疾病史、生產史、計算預產期",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "xs",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "身體檢查",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#e67a77",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "體重、身高、血壓、甲狀腺、乳房、骨盆腔、腹部檢查",
+                "weight": "regular",
+                "wrap": True,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "xs",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "血液常規檢驗",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#e67a77",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "白血球、血小板、血球容積比、血色素、平均紅血球體積",
+                "weight": "regular",
+                "wrap": True,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "xs",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
                 "text": "實驗室檢查",
                 "weight": "regular",
                 "wrap": False,
-                "color": "#b85823",
+                "color": "#e67a77",
                 "flex": 0,
                 "size": "sm",
                 "margin": "none",
@@ -120,14 +219,14 @@
               },
               {
                 "type": "text",
-                "text": "...",
+                "text": "尿液檢驗、愛滋病檢查、第一次梅毒血清反應檢查",
                 "weight": "regular",
-                "wrap": False,
+                "wrap": True,
                 "color": "#4a4a4a",
                 "flex": 1,
-                "size": "sm",
+                "size": "xs",
                 "margin": "none",
-                "align": "end",
+                "align": "start",
                 "gravity": "top"
               }
             ],
@@ -141,26 +240,26 @@
             "contents": [
               {
                 "type": "text",
-                "text": "胎位、胎心音",
+                "text": "注意事項",
                 "weight": "regular",
                 "wrap": False,
-                "color": "#b85823",
+                "color": "#830905",
                 "flex": 0,
-                "size": "sm",
-                "margin": "none",
+                "size": "md",
+                "margin": "md",
                 "align": "start",
                 "gravity": "top"
               },
               {
                 "type": "text",
-                "text": "...",
+                "text": "媽咪第一次產檢前要了解自己的月經週期及最後一次月經來的時間、直系親屬及老公家族人員的健康情況，這些都會方便醫生進行更精確的問診喔！第一次產檢時間和總的產檢次數也會因人而異，不同醫院的產檢項目可能有所不同。產檢過程非常短暫，可以列出你的問題，這樣能更有效地利用產檢時間唷！不用緊張～抱著輕鬆的心情去就可以囉",
                 "weight": "regular",
-                "wrap": False,
+                "wrap": True,
                 "color": "#4a4a4a",
                 "flex": 1,
-                "size": "sm",
-                "margin": "none",
-                "align": "end",
+                "size": "xs",
+                "margin": "md",
+                "align": "start",
                 "gravity": "top"
               }
             ],
@@ -171,164 +270,7 @@
           {
             "type": "box",
             "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "腳水腫、靜脈曲張",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#b85823",
-                "flex": 0,
-                "size": "sm",
-                "margin": "none",
-                "align": "start",
-                "gravity": "top"
-              },
-              {
-                "type": "text",
-                "text": "...",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#4a4a4a",
-                "flex": 1,
-                "size": "sm",
-                "margin": "none",
-                "align": "end",
-                "gravity": "top"
-              }
-            ],
-            "flex": 1,
-            "spacing": "none",
-            "margin": "md"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "測量腹圍",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#b85823",
-                "flex": 0,
-                "size": "sm",
-                "margin": "none",
-                "align": "start",
-                "gravity": "top"
-              },
-              {
-                "type": "text",
-                "text": "...",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#4a4a4a",
-                "flex": 1,
-                "size": "sm",
-                "margin": "none",
-                "align": "end",
-                "gravity": "top"
-              }
-            ],
-            "flex": 1,
-            "spacing": "none",
-            "margin": "md"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "宮底高度",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#b85823",
-                "flex": 0,
-                "size": "sm",
-                "margin": "none",
-                "align": "start",
-                "gravity": "top"
-              },
-              {
-                "type": "text",
-                "text": "...",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#4a4a4a",
-                "flex": 1,
-                "size": "sm",
-                "margin": "none",
-                "align": "end",
-                "gravity": "top"
-              }
-            ],
-            "flex": 1,
-            "spacing": "none",
-            "margin": "md"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "胎兒身長‧體重",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#b85823",
-                "flex": 0,
-                "size": "sm",
-                "margin": "none",
-                "align": "start",
-                "gravity": "top"
-              },
-              {
-                "type": "text",
-                "text": "...",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#4a4a4a",
-                "flex": 1,
-                "size": "sm",
-                "margin": "none",
-                "align": "end",
-                "gravity": "top"
-              }
-            ],
-            "flex": 1,
-            "spacing": "none",
-            "margin": "md"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "超音波檢查(自費)",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#b85823",
-                "flex": 0,
-                "size": "sm",
-                "margin": "none",
-                "align": "start",
-                "gravity": "top"
-              },
-              {
-                "type": "text",
-                "text": "...",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#4a4a4a",
-                "flex": 1,
-                "size": "sm",
-                "margin": "none",
-                "align": "end",
-                "gravity": "top"
-              }
-            ],
+            "contents": [],
             "flex": 1,
             "spacing": "none",
             "margin": "md"

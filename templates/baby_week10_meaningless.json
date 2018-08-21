@@ -1,0 +1,72 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://imgur.com/eG3JDM0.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "fit",
+    "margin": "none"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "媽媽要好好休息、多睡覺，我會努力長大的～",
+                "weight": "regular",
+                "wrap": True,
+                "color": "#666666",
+                "flex": 5,
+                "size": "md",
+                "margin": "none",
+                "align": "start",
+                "gravity": "center"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "none"
+          }
+        ],
+        "flex": 1,
+        "spacing": "none",
+        "margin": "none"
+      }
+    ],
+    "flex": 1,
+    "spacing": "none",
+    "margin": "md"
+  },
+  "styles": {
+    "header": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "hero": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "body": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "footer": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    }
+  }
+}

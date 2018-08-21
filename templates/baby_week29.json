@@ -1,0 +1,70 @@
+{
+  "type": "bubble",
+  "hero": {
+    "type": "image",
+    "url": "https://imgur.com/u4i6USw.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "fit",
+    "margin": "none"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "baseline",
+            "contents": [
+              {
+                "type": "text",
+                "text": "預產期還有11週了，媽媽是不是很興奮也有點緊張呢？寶寶的肌肉和肺正在繼續成熟，大腦的神經元細胞也在飛速地生成，我的頭會繼續長大喔！現在甚至可以做夢了呢！",
+                "weight": "regular",
+                "wrap": True,
+                "color": "#666666",
+                "flex": 5,
+                "size": "md",
+                "margin": "none",
+                "align": "start",
+                "gravity": "center"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "none"
+          }
+        ],
+        "flex": 1,
+        "spacing": "none",
+        "margin": "none"
+      }
+    ],
+    "flex": 1,
+    "spacing": "none",
+    "margin": "md"
+  },
+  "styles": {
+    "header": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "hero": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "body": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "footer": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    }
