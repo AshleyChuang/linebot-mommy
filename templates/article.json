@@ -2,7 +2,7 @@
   "type": "bubble",
   "styles": {
     "footer": {
-      "separator": true
+      "separator": True
     }
   },
   "hero": {
@@ -20,14 +20,14 @@
       {
         "type": "text",
         "text": "{{title}}",
-        "wrap": true,
+        "wrap": True,
         "weight": "bold",
         "size": "sm"
       },
       {
         "type": "text",
         "text": "{{description}}",
-        "wrap": true,
+        "wrap": True,
         "color": "#aaaaaa",
         "size": "xs"
       }
