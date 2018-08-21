@@ -170,7 +170,7 @@ def article_fetching(tag):
         print(file_name)
         with open('article/%s'%(file_name)) as f:
             article = json.load(f)
-        article['share_url'] = 'line://msg/text/?'+(article.get('title')).replace(" ", "%20")+article.get('url')
+        article['share_url'] = 'line://msg/text/?'+article.get('url')#+(article.get('title')).replace(" ", "%20")+
         pprint(article)
         data = template.render(article)
         data = eval(data)
