@@ -23,7 +23,7 @@
             "type": "text",
             "text": "下次產檢",
             "weight": "regular",
-            "wrap": true,
+            "wrap": True,
             "color": "#464646",
             "flex": 0,
             "size": "sm",
@@ -35,7 +35,7 @@
             "type": "text",
             "text": "{{year}}/{{month}}/{{date}}",
             "weight": "bold",
-            "wrap": true,
+            "wrap": True,
             "color": "#464646",
             "flex": 0,
             "size": "xl",
@@ -52,7 +52,7 @@
         "type": "text",
         "text": "台北市內湖區瑞光路610號",
         "weight": "regular",
-        "wrap": true,
+        "wrap": True,
         "color": "#aaaaaa",
         "flex": 1,
         "size": "xs",
@@ -361,7 +361,7 @@
     },
     "footer": {
       "backgroundColor": "#FFFFFF",
-      "separator": true,
+      "separator": True,
       "separatorColor": "#FFFFFF"
     }
   }
