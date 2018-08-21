@@ -1,0 +1,368 @@
+{
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "REMINDER",
+        "weight": "bold",
+        "wrap": False,
+        "color": "#FA5858",
+        "flex": 1,
+        "size": "sm",
+        "margin": "none",
+        "align": "start",
+        "gravity": "top"
+      },
+      {
+        "type": "box",
+        "layout": "baseline",
+        "contents": [
+          {
+            "type": "text",
+            "text": "下次產檢",
+            "weight": "regular",
+            "wrap": true,
+            "color": "#464646",
+            "flex": 0,
+            "size": "sm",
+            "margin": "none",
+            "align": "start",
+            "gravity": "top"
+          },
+          {
+            "type": "text",
+            "text": "{{year}}/{{month}}/{{date}}",
+            "weight": "bold",
+            "wrap": true,
+            "color": "#464646",
+            "flex": 0,
+            "size": "xl",
+            "margin": "md",
+            "align": "start",
+            "gravity": "top"
+          }
+        ],
+        "flex": 1,
+        "spacing": "none",
+        "margin": "md"
+      },
+      {
+        "type": "text",
+        "text": "台北市內湖區瑞光路610號",
+        "weight": "regular",
+        "wrap": true,
+        "color": "#aaaaaa",
+        "flex": 1,
+        "size": "xs",
+        "margin": "none",
+        "align": "start",
+        "gravity": "top"
+      },
+      {
+        "type": "separator",
+        "margin": "xl",
+        "color": "#4a4a4a"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "體重、血壓",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#b85823",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "懷孕7~8個月，準媽媽體重約每週增加0.5kg",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "xxs",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "實驗室檢查",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#b85823",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "...",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "胎位、胎心音",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#b85823",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "...",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "腳水腫、靜脈曲張",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#b85823",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "...",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "測量腹圍",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#b85823",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "...",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "宮底高度",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#b85823",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "...",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "胎兒身長‧體重",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#b85823",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "...",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "超音波檢查(自費)",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#b85823",
+                "flex": 0,
+                "size": "sm",
+                "margin": "none",
+                "align": "start",
+                "gravity": "top"
+              },
+              {
+                "type": "text",
+                "text": "...",
+                "weight": "regular",
+                "wrap": False,
+                "color": "#4a4a4a",
+                "flex": 1,
+                "size": "sm",
+                "margin": "none",
+                "align": "end",
+                "gravity": "top"
+              }
+            ],
+            "flex": 1,
+            "spacing": "none",
+            "margin": "md"
+          }
+        ],
+        "flex": 1,
+        "spacing": "sm",
+        "margin": "xxl"
+      }
+    ],
+    "flex": 1,
+    "spacing": "none",
+    "margin": "md"
+  },
+  "styles": {
+    "header": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "hero": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "body": {
+      "backgroundColor": "#FFFFFF",
+      "separator": False,
+      "separatorColor": "#FFFFFF"
+    },
+    "footer": {
+      "backgroundColor": "#FFFFFF",
+      "separator": true,
+      "separatorColor": "#FFFFFF"
+    }
+  }
+}

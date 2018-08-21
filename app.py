@@ -107,7 +107,12 @@ def reminder():
     print(user_id)
     profile = line_bot_api.get_profile(user_id)
     user_name = profile.display_name
-    line_bot_api.push_message(user_id, TextSendMessage(text='Hi, %s 媽咪！下次產檢在%s/%s/%s喔～以下為下次產檢的注意事項...bla bla bla' % (user_name, year, month, date)))
+    #line_bot_api.push_message(user_id, TextSendMessage(text='Hi, %s 媽咪！下次產檢在%s/%s/%s喔～以下為下次產檢的注意事項...bla bla bla' % (user_name, year, month, date)))
+    template = template_env.get_template('reminder.json')
+    data = template.render(year=year, month=month, date=date)
+    data = eval(data)
+    flex_message = FlexSendMessage(alt_text='下次產檢注意事項',contents=BubbleContainer.new_from_json_dict(data))
+    line_bot_api.push_message(user_id, flex_message)
     return 'OK'
 
 @app.route('/video', methods=['POST'])
@@ -174,22 +179,6 @@ def article_fetching(tag):
         data = template.render(article)
         data = eval(data)
         col.append(BubbleContainer.new_from_json_dict(data))
-        # col.append(CarouselColumn(
-        #     title=article.get('title'), text=article.get('description'),
-        #     thumbnail_image_url=article.get('image'),
-        #     actions=[
-        #         URITemplateAction(
-        #             label='點我觀看文章',
-        #             uri=article.get('url')
-        #         ),
-        #         URITemplateAction(
-        #             label='分享',
-        #             uri='line://msg/text/?'+(article.get('title')).replace(" ", "%20")+article.get('url')
-        #         )
-        #     ]
-        # ))
-    #carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
-    #message = TemplateSendMessage(type='template', alt_text='article', template=carousel_temp)
     message = FlexSendMessage(alt_text='推薦文章', contents=CarouselContainer(contents=col))
     return message
 
