@@ -253,9 +253,7 @@ def handle_message(event):
             dir_name = './line_group/others/'
         message = get_line_group(dir_name)
         line_bot_api.reply_message(event.reply_token,message)
-    else:
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=event.message.text))
-
+    
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
     line_bot_api.reply_message(
