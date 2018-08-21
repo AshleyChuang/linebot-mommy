@@ -163,7 +163,7 @@ week = 5
 
 def article_fetching(tag):
     files = [filename for filename in os.listdir('./article/') if filename.startswith(tag)]
-    carousel_container = []
+    col = []
     template = template_env.get_template('article.json')
 
     for file_name in files:
@@ -174,7 +174,7 @@ def article_fetching(tag):
         pprint(article)
         data = template.render(article)
         data = eval(data)
-        carousel_container.append(BubbleContainer.new_from_json_dict(data))
+        col.append(BubbleContainer.new_from_json_dict(data))
         # col.append(CarouselColumn(
         #     title=article.get('title'), text=article.get('description'),
         #     thumbnail_image_url=article.get('image'),
@@ -191,7 +191,7 @@ def article_fetching(tag):
         # ))
     #carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
     #message = TemplateSendMessage(type='template', alt_text='article', template=carousel_temp)
-    message = FlexSendMessage(alt_text='推薦文章', contents=carousel_container)
+    message = FlexSendMessage(alt_text='推薦文章', contents=CarouselContainer(contents=col))
     return message
 
 def get_line_group(dir_name):
