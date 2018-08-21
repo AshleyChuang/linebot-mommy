@@ -1,0 +1,65 @@
+{
+  "type": "bubble",
+  "styles": {
+    "footer": {
+      "separator": true
+    }
+  },
+  "hero": {
+    "type": "image",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "url": "{{image}}"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "text",
+        "text": "{{title}}",
+        "wrap": true,
+        "weight": "bold",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "{{description}}",
+        "wrap": true,
+        "color": "#aaaaaa",
+        "size": "xs"
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "horizontal",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "style": "primary",
+        "color": "#ffaaaa",
+        "action": {
+          "type": "uri",
+          "label": "觀看文章",
+          "uri": "{{url}}"
+        },
+        "flex": 5
+      },
+      {
+        "type": "button",
+        "style": "primary",
+        "color": "#ffaaaa",
+        "action": {
+          "type": "uri",
+          "label": "分享",
+          "uri": "{{share_url}}"
+        },
+        "flex": 5
+      }
+    ]
+  }
+}

@@ -164,25 +164,29 @@ week = 5
 def article_fetching(tag):
     files = [filename for filename in os.listdir('./article/') if filename.startswith(tag)]
     col = []
+    template = template_env.get_template('article.json')
+
     for file_name in files:
         print(file_name)
         with open('article/%s'%(file_name)) as f:
             article = json.load(f)
+        article['share_url'] = 'line://msg/text/?'+(article.get('title')).replace(" ", "%20")+article.get('url')
         pprint(article)
-        col.append(CarouselColumn(
-            title=article.get('title'), text=article.get('description'),
-            thumbnail_image_url=article.get('image'),
-            actions=[
-                URITemplateAction(
-                    label='點我觀看文章',
-                    uri=article.get('url')
-                ),
-                URITemplateAction(
-                    label='分享',
-                    uri='line://msg/text/?'+(article.get('title')).replace(" ", "%20")+article.get('url')
-                )
-            ]
-        ))
+        col.append(FlexSendMessage(alt_text='推薦文章',contents=BubbleContainer.new_from_json_dict(article)))
+        # col.append(CarouselColumn(
+        #     title=article.get('title'), text=article.get('description'),
+        #     thumbnail_image_url=article.get('image'),
+        #     actions=[
+        #         URITemplateAction(
+        #             label='點我觀看文章',
+        #             uri=article.get('url')
+        #         ),
+        #         URITemplateAction(
+        #             label='分享',
+        #             uri='line://msg/text/?'+(article.get('title')).replace(" ", "%20")+article.get('url')
+        #         )
+        #     ]
+        # ))
     carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
     message = TemplateSendMessage(type='template', alt_text='article', template=carousel_temp)
     return message
