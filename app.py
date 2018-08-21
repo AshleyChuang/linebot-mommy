@@ -172,7 +172,9 @@ def article_fetching(tag):
             article = json.load(f)
         article['share_url'] = 'line://msg/text/?'+(article.get('title')).replace(" ", "%20")+article.get('url')
         pprint(article)
-        col.append(FlexSendMessage(alt_text='推薦文章',contents=BubbleContainer.new_from_json_dict(article)))
+        data = template.render(article)
+        data = eval(data)
+        col.append(FlexSendMessage(alt_text='推薦文章',contents=BubbleContainer.new_from_json_dict(data)))
         # col.append(CarouselColumn(
         #     title=article.get('title'), text=article.get('description'),
         #     thumbnail_image_url=article.get('image'),
