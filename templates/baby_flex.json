@@ -24,7 +24,7 @@
                 "type": "text",
                 "text": "寶寶目前耳朵正位於頭部下方，隨著頭部漸漸長大，耳朵會移至正確位置。這個禮拜結束之後，外耳會發育完全，我很快就可以聽到媽咪的聲音了哦﹗",
                 "weight": "regular",
-                "wrap": true,
+                "wrap": True,
                 "color": "#666666",
                 "flex": 5,
                 "size": "md",
@@ -50,22 +50,22 @@
   "styles": {
     "header": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     },
     "hero": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     },
     "body": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     },
     "footer": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     }
   }
