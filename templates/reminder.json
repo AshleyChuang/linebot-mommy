@@ -84,18 +84,6 @@
                 "margin": "none",
                 "align": "start",
                 "gravity": "top"
-              },
-              {
-                "type": "text",
-                "text": "",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#4a4a4a",
-                "flex": 1,
-                "size": "xxs",
-                "margin": "none",
-                "align": "end",
-                "gravity": "top"
               }
             ],
             "flex": 1,
@@ -263,14 +251,6 @@
                 "gravity": "top"
               }
             ],
-            "flex": 1,
-            "spacing": "none",
-            "margin": "md"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [],
             "flex": 1,
             "spacing": "none",
             "margin": "md"
