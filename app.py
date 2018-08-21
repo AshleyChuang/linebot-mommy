@@ -125,8 +125,12 @@ def post_video():
     message = []
     message.append(TextSendMessage(text="寶寶已經七個月囉～%s媽咪來回顧一下寶寶的成長吧！"%(user_name)))
     message.append(VideoSendMessage(
-        original_content_url='https://cdn-b-east.streamable.com/video/mp4/hb4gz.mp4?token=AxiKEiqHPC4HpjwULTNNGA&expires=1534742616',
-        preview_image_url='https://image.freepik.com/free-photo/doctor-smiling-with-stethoscope_1154-36.jpg'
+        original_content_url='https://cdn-b-east.streamable.com/video/mp4/kdebf.mp4?token=UHJnP_AuJKwUWUZCtcEUZQ&expires=1534826912',
+        preview_image_url='https://cdn-b-east.streamable.com/image/kdebf_first.jpg?token=6m7RlkvMHXKg7I-g9fezJA&expires=1534826912'
+    ))
+    message.append(VideoSendMessage(
+        original_content_url='https://cdn-b-east.streamable.com/video/mp4/x2e3i.mp4?token=bxg-9M-L0RPYQioipWUzeg&expires=1534826406',
+        preview_image_url='https://cdn-b-east.streamable.com/image/x2e3i_first.jpg?token=y1JWMBjJeFae3X-ljs85Mw&expires=1534826706'
     ))
     line_bot_api.push_message(user_id, message)
     return 'OK'
