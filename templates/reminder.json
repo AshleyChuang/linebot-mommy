@@ -26,20 +26,8 @@
             "wrap": True,
             "color": "#464646",
             "flex": 0,
-            "size": "sm",
-            "margin": "none",
-            "align": "start",
-            "gravity": "top"
-          },
-          {
-            "type": "text",
-            "text": "{{year}}/{{month}}/{{date}}",
-            "weight": "bold",
-            "wrap": True,
-            "color": "#464646",
-            "flex": 0,
             "size": "xl",
-            "margin": "md",
+            "margin": "none",
             "align": "start",
             "gravity": "top"
           }
@@ -162,7 +150,7 @@
             "contents": [
               {
                 "type": "text",
-                "text": "血液常規檢驗",
+                "text": "其他檢驗",
                 "weight": "regular",
                 "wrap": False,
                 "color": "#e67a77",
@@ -174,40 +162,7 @@
               },
               {
                 "type": "text",
-                "text": "白血球、血小板、血球容積比、血色素、平均紅血球體積",
-                "weight": "regular",
-                "wrap": True,
-                "color": "#4a4a4a",
-                "flex": 1,
-                "size": "xs",
-                "margin": "none",
-                "align": "start",
-                "gravity": "top"
-              }
-            ],
-            "flex": 1,
-            "spacing": "none",
-            "margin": "md"
-          },
-          {
-            "type": "box",
-            "layout": "vertical",
-            "contents": [
-              {
-                "type": "text",
-                "text": "實驗室檢查",
-                "weight": "regular",
-                "wrap": False,
-                "color": "#e67a77",
-                "flex": 0,
-                "size": "sm",
-                "margin": "none",
-                "align": "start",
-                "gravity": "top"
-              },
-              {
-                "type": "text",
-                "text": "尿液檢驗、愛滋病檢查、第一次梅毒血清反應檢查",
+                "text": "抽血檢查、尿液檢查",
                 "weight": "regular",
                 "wrap": True,
                 "color": "#4a4a4a",
@@ -240,7 +195,7 @@
               },
               {
                 "type": "text",
-                "text": "媽咪第一次產檢前要了解自己的月經週期及最後一次月經來的時間、直系親屬及老公家族人員的健康情況，這些都會方便醫生進行更精確的問診喔！第一次產檢時間和總的產檢次數也會因人而異，不同醫院的產檢項目可能有所不同。產檢過程非常短暫，可以列出你的問題，這樣能更有效地利用產檢時間唷！不用緊張～抱著輕鬆的心情去就可以囉",
+                "text": "媽咪第一次產檢前要了解自己和老公家族的健康情況，這些都會方便醫生進行更精確的問診喔！產檢時間和總產檢次數會因人而異，不同醫院項目也會不同。媽咪不用太緊張～抱著輕鬆的心情去產檢就可以囉＝）",
                 "weight": "regular",
                 "wrap": True,
                 "color": "#4a4a4a",
@@ -277,7 +232,7 @@
       "separatorColor": "#FFFFFF"
     },
     "body": {
-      "backgroundColor": "#FFFFFF",
+      "backgroundColor": "#f7cccc",
       "separator": False,
       "separatorColor": "#FFFFFF"
     },
