@@ -59,8 +59,8 @@
         "type": "button",
         "action": {
           "type": "uri",
-          "label": "按鈕標籤",
-          "uri": ""
+          "label": "點我設定寶寶",
+          "uri": "line://app/1599707218-GXaPzXy8"
         },
         "flex": 1,
         "margin": "none",
