@@ -52,7 +52,11 @@ def handle_follow(event):
         template=buttons_template
         ))
     message.append(TextMessage(text='說明bla blab bla~'))
-    line_bot_api.reply_message(event.reply_token, message)
+    template = template_env.get_template('welcome_message.json')
+    data = template.render()
+    data = eval(data)
+    flex_message = FlexSendMessage(alt_text='下次產檢注意事項',contents=BubbleContainer.new_from_json_dict(data))
+    line_bot_api.reply_message(event.reply_token, flex_message)
 
 @app.route("/callback", methods=['POST'])
 def callback():
