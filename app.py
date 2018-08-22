@@ -41,17 +41,6 @@ handler = WebhookHandler('c80566dca51b314332768ca929117904')
 @handler.add(FollowEvent)
 def handle_follow(event):
     print(event.source.user_id)
-    message = []
-    buttons_template = ButtonsTemplate(
-        type='buttons', title="歡迎加入寶寶說",
-        text='bla bla bla',
-        actions=[URITemplateAction(type = 'uri',label='初次使用設定', uri="line://app/1599707218-GXaPzXy8")]
-        )
-    message.append(TemplateSendMessage(
-        type = 'template', alt_text="Welcome",
-        template=buttons_template
-        ))
-    message.append(TextMessage(text='說明bla blab bla~'))
     template = template_env.get_template('welcome_message.json')
     data = template.render()
     data = eval(data)
@@ -134,11 +123,11 @@ def post_video():
     message = []
     message.append(TextSendMessage(text="寶寶已經七個月囉～%s媽咪來回顧一下寶寶的成長吧！"%(user_name)))
     message.append(VideoSendMessage(
-        original_content_url='https://cdn-b-east.streamable.com/video/mp4/kdebf.mp4?token=UHJnP_AuJKwUWUZCtcEUZQ&expires=1534826912',
+        original_content_url='https://line-mommy-baby.herokuapp.com/static/video2.mp4',
         preview_image_url='https://cdn-b-east.streamable.com/image/kdebf_first.jpg?token=6m7RlkvMHXKg7I-g9fezJA&expires=1534826912'
     ))
     message.append(VideoSendMessage(
-        original_content_url='https://cdn-b-east.streamable.com/video/mp4/87kji.mp4?token=3ymmS7Pz2YeWmTMyBpMNWQ&expires=1534827632',
+        original_content_url='https://line-mommy-baby.herokuapp.com/static/video.mp4',
         preview_image_url='https://cdn-b-east.streamable.com/image/87kji_first.jpg?token=mDniALD2iAqCs1GqZeUDqA&expires=1534827632'
     ))
     line_bot_api.push_message(user_id, message)
