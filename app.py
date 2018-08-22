@@ -245,11 +245,11 @@ def handle_message(event):
     elif event.message.text.startswith("$"):
         if event.message.text == "$醫生":
             dir_name = './line_group/doctor/'
-        elif event.message.text == "$媽咪":
+        elif event.message.text == "$素人媽媽":
             dir_name = './line_group/mommy/'
         elif event.message.text == "$部落客":
             dir_name = './line_group/blogger/'
-        elif event.message.text == "$其他類":
+        elif event.message.text == "$其他":
             dir_name = './line_group/others/'
         message = get_line_group(dir_name)
         line_bot_api.reply_message(event.reply_token,message)
