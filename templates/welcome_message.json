@@ -16,7 +16,7 @@
                 "type": "text",
                 "text": "注意事項",
                 "weight": "bold",
-                "wrap": false,
+                "wrap": False,
                 "color": "#e67a77",
                 "flex": 0,
                 "size": "md",
@@ -28,7 +28,7 @@
                 "type": "text",
                 "text": "哈囉～～歡迎媽咪加入寶寶説官方帳號😍 寶寶說是妳懷孕期間最貼心的小幫手，可以在時光小屋中記錄每天的心情跟身體狀況，用大補帖快速查詢最新的資訊，還可以加入媽咪論壇讓你懷孕不孤單💕 快按基本設定新增寶寶的資訊呦👶🏻",
                 "weight": "regular",
-                "wrap": true,
+                "wrap": True,
                 "color": "#4a4a4a",
                 "flex": 1,
                 "size": "xs",
@@ -71,22 +71,22 @@
   "styles": {
     "header": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     },
     "hero": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     },
     "body": {
       "backgroundColor": "#FFFFFF",
-      "separator": false,
+      "separator": False,
       "separatorColor": "#FFFFFF"
     },
     "footer": {
       "backgroundColor": "#FFFFFF",
-      "separator": true,
+      "separator": True,
       "separatorColor": "#FFFFFF"
     }
   }
