@@ -51,15 +51,25 @@
     {
       "type": "action",
       "action": {
-        "type": "cameraRoll",
-        "label": "Send photo"
+        "type":"message",
+        "label":"{{info6}}",
+        "text":"\{{info6}}"
       }
     },
     {
       "type": "action",
       "action": {
-        "type": "camera",
-        "label": "Open camera"
+        "type":"message",
+        "label":"{{info7}}",
+        "text":"\{{info7}}"
+      }
+    },
+    {
+      "type": "action",
+      "action": {
+        "type":"message",
+        "label":"{{info8}}",
+        "text":"\{{info8}}"
       }
     }
   ]
