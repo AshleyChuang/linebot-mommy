@@ -14,7 +14,7 @@
             "contents": [
               {
                 "type": "text",
-                "text": "注意事項",
+                "text": "歡迎加入媽咪新手村",
                 "weight": "bold",
                 "wrap": False,
                 "color": "#e67a77",
@@ -57,7 +57,13 @@
     "contents": [
       {
         "type": "button",
+        "action": {
+          "type": "uri",
+          "label": "按鈕標籤",
+          "uri": ""
+        },
         "flex": 1,
+        "margin": "none",
         "height": "md",
         "style": "primary",
         "color": "#ffaaaa",
