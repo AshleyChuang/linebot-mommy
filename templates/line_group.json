@@ -1,0 +1,54 @@
+{
+  "type": "bubble",
+  "styles": {
+    "footer": {
+      "separator": True
+    }
+  },
+  "hero": {
+    "type": "image",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover",
+    "url": "{{image}}"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "text",
+        "text": "{{title}}",
+        "wrap": True,
+        "weight": "bold",
+        "size": "sm"
+      },
+      {
+        "type": "text",
+        "text": "{{description}}",
+        "wrap": True,
+        "color": "#aaaaaa",
+        "size": "xs"
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "horizontal",
+    "spacing": "sm",
+    "contents": [
+      {
+        "type": "button",
+        "style": "primary",
+        "color": "#ffaaaa",
+        "action": {
+          "type": "uri",
+          "label": "加入群組",
+          "uri": "{{url}}"
+        },
+        "flex": 5
+      }
+    ]
+  }
+}

@@ -178,23 +178,17 @@ def article_fetching(tag):
 def get_line_group(dir_name):
     files = [filename for filename in os.listdir(dir_name)]
     col = []
+    template = template_env.get_template('line_group.json')
+
     for file_name in files:
         print(file_name)
         with open('%s%s'%(dir_name,file_name)) as f:
             group = json.load(f)
         pprint(group)
-        col.append(CarouselColumn(
-            title=group.get('title'), text=group.get('description'),
-            thumbnail_image_url=group.get('image'),
-            actions=[
-                URITemplateAction(
-                    label='加入群組',
-                    uri=group.get('url')
-                )
-            ]
-        ))
-    carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
-    message = TemplateSendMessage(type='template', alt_text='line_group', template=carousel_temp)
+        data = template.render(group)
+        data = eval(data)
+        col.append(BubbleContainer.new_from_json_dict(data))
+    message = FlexSendMessage(alt_text='加入群組', contents=CarouselContainer(contents=col))
     return message
 
 @handler.add(MessageEvent, message=TextMessage)
