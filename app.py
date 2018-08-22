@@ -219,14 +219,14 @@ def handle_message(event):
         message = []
         message.append(TextSendMessage(text="請選擇想加入的社群分類～"))
         message.append(ImagemapSendMessage(
-            base_url="https://imgur.com/z3CP17h.jpg",
+            base_url="https://i.imgur.com/sNhwbTh.jpg",
             alt_text="This is an imagemap",
             base_size=BaseSize(1040,1040),
             actions=[
-                MessageImagemapAction(type='message',text="$媽咪", area=ImagemapArea(0, 0, 520, 520)),
+                MessageImagemapAction(type='message',text="$素人媽媽", area=ImagemapArea(0, 0, 520, 520)),
                 MessageImagemapAction(type='message',text="$醫生", area=ImagemapArea(0, 520, 520, 520)),
                 MessageImagemapAction(type='message',text="$部落客", area=ImagemapArea(520, 0, 520, 520)),
-                MessageImagemapAction(type='message',text="$其他類", area=ImagemapArea(520, 520, 520, 520))
+                MessageImagemapAction(type='message',text="$其他", area=ImagemapArea(520, 520, 520, 520))
             ]
         ))
         line_bot_api.reply_message(event.reply_token, message)
@@ -253,7 +253,7 @@ def handle_message(event):
             dir_name = './line_group/others/'
         message = get_line_group(dir_name)
         line_bot_api.reply_message(event.reply_token,message)
-    
+
 @handler.add(MessageEvent, message=StickerMessage)
 def handle_sticker_message(event):
     line_bot_api.reply_message(
