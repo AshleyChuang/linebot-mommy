@@ -141,11 +141,12 @@ def post_video2():
     print(user_id)
     profile = line_bot_api.get_profile(user_id)
     user_name = profile.display_name
-
-    message = VideoSendMessage(
+    message = []
+    message.append(TextSendMessage(text="恭喜寶寶已經出生了～～這十個月辛苦%s媽媽了!這是寶寶說送給媽咪的小禮物喔～好好回顧一下這十個月肚子的變化吧！"%(user_name)))
+    message.append(VideoSendMessage(
         original_content_url='https://line-mommy-baby.herokuapp.com/static/video.mp4',
         preview_image_url='https://cdn-b-east.streamable.com/image/87kji_first.jpg?token=mDniALD2iAqCs1GqZeUDqA&expires=1534827632'
-    )
+    ))
     line_bot_api.push_message(user_id, message)
     return 'OK'
 
