@@ -108,8 +108,8 @@ def reminder():
     line_bot_api.push_message(user_id, flex_message)
     return 'OK'
 
-@app.route('/video', methods=['POST'])
-def post_video():
+@app.route('/video_1', methods=['POST'])
+def post_video1():
     if not request.content_type == 'application/json':
         abort(401)
 
@@ -126,10 +126,26 @@ def post_video():
         original_content_url='https://line-mommy-baby.herokuapp.com/static/video2.mp4',
         preview_image_url='https://cdn-b-east.streamable.com/image/kdebf_first.jpg?token=6m7RlkvMHXKg7I-g9fezJA&expires=1534826912'
     ))
-    message.append(VideoSendMessage(
+    line_bot_api.push_message(user_id, message)
+    return 'OK'
+
+@app.route('/video_2', methods=['POST'])
+def post_video2():
+    if not request.content_type == 'application/json':
+        abort(401)
+
+    data = request.get_json()
+    user_id = data.get('user_id')
+    if not user_id:
+        abort(401)
+    print(user_id)
+    profile = line_bot_api.get_profile(user_id)
+    user_name = profile.display_name
+
+    message = VideoSendMessage(
         original_content_url='https://line-mommy-baby.herokuapp.com/static/video.mp4',
         preview_image_url='https://cdn-b-east.streamable.com/image/87kji_first.jpg?token=mDniALD2iAqCs1GqZeUDqA&expires=1534827632'
-    ))
+    )
     line_bot_api.push_message(user_id, message)
     return 'OK'
 
@@ -218,7 +234,6 @@ def handle_message(event):
         ))
         line_bot_api.reply_message(event.reply_token, message)
     elif event.message.text == "大補帖":
-        #search_info()
         template = template_env.get_template('quick_reply.json')
         with open('quick_reply/week%s.json' % (str(week))) as f:
             option = json.load(f)
