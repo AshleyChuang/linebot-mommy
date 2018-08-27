@@ -127,10 +127,11 @@ def post_video1():
     user_name = profile.display_name
     """
     user_id = request.args.get("user_id")
+    print(user_id)
 
     message = []
     #message.append(TextSendMessage(text="寶寶已經七個月囉～%s媽咪來回顧一下寶寶的成長吧！"%(user_name)))
-    message.append(TextSendMessage(text="寶寶已經七個月囉～媽咪來回顧一下寶寶的成長吧！"))
+    message.append(TextSendMessage(text="寶寶已經五個月囉～媽咪來回顧一下寶寶的成長吧！"))
     message.append(VideoSendMessage(
         original_content_url='https://line-mommy-baby.herokuapp.com/static/video2.mp4',
         preview_image_url='https://cdn-b-east.streamable.com/image/kdebf_first.jpg?token=6m7RlkvMHXKg7I-g9fezJA&expires=1534826912'
