@@ -41,17 +41,6 @@ handler = WebhookHandler('c80566dca51b314332768ca929117904')
 @handler.add(FollowEvent)
 def handle_follow(event):
     print(event.source.user_id)
-    message = []
-    buttons_template = ButtonsTemplate(
-        type='buttons', title="歡迎加入寶寶說",
-        text='bla bla bla',
-        actions=[URITemplateAction(type = 'uri',label='初次使用設定', uri="line://app/1599707218-GXaPzXy8")]
-        )
-    message.append(TemplateSendMessage(
-        type = 'template', alt_text="Welcome",
-        template=buttons_template
-        ))
-    message.append(TextMessage(text='說明bla blab bla~'))
     template = template_env.get_template('welcome_message.json')
     data = template.render()
     data = eval(data)
@@ -122,8 +111,8 @@ def reminder():
     """
     return 'OK'
 
-@app.route('/video', methods=['POST'])
-def post_video():
+@app.route('/video_1', methods=['POST'])
+def post_video1():
     if not request.content_type == 'application/json':
         abort(401)
 
@@ -137,11 +126,28 @@ def post_video():
     message = []
     message.append(TextSendMessage(text="寶寶已經七個月囉～%s媽咪來回顧一下寶寶的成長吧！"%(user_name)))
     message.append(VideoSendMessage(
-        original_content_url='https://cdn-b-east.streamable.com/video/mp4/kdebf.mp4?token=UHJnP_AuJKwUWUZCtcEUZQ&expires=1534826912',
+        original_content_url='https://line-mommy-baby.herokuapp.com/static/video2.mp4',
         preview_image_url='https://cdn-b-east.streamable.com/image/kdebf_first.jpg?token=6m7RlkvMHXKg7I-g9fezJA&expires=1534826912'
     ))
+    line_bot_api.push_message(user_id, message)
+    return 'OK'
+
+@app.route('/video_2', methods=['POST'])
+def post_video2():
+    if not request.content_type == 'application/json':
+        abort(401)
+
+    data = request.get_json()
+    user_id = data.get('user_id')
+    if not user_id:
+        abort(401)
+    print(user_id)
+    profile = line_bot_api.get_profile(user_id)
+    user_name = profile.display_name
+    message = []
+    message.append(TextSendMessage(text="恭喜寶寶已經出生了～～這十個月辛苦%s媽媽了!這是寶寶說送給媽咪的小禮物喔～好好回顧一下這十個月肚子的變化吧！"%(user_name)))
     message.append(VideoSendMessage(
-        original_content_url='https://cdn-b-east.streamable.com/video/mp4/87kji.mp4?token=3ymmS7Pz2YeWmTMyBpMNWQ&expires=1534827632',
+        original_content_url='https://line-mommy-baby.herokuapp.com/static/video.mp4',
         preview_image_url='https://cdn-b-east.streamable.com/image/87kji_first.jpg?token=mDniALD2iAqCs1GqZeUDqA&expires=1534827632'
     ))
     line_bot_api.push_message(user_id, message)
@@ -192,23 +198,17 @@ def article_fetching(tag):
 def get_line_group(dir_name):
     files = [filename for filename in os.listdir(dir_name)]
     col = []
+    template = template_env.get_template('line_group.json')
+
     for file_name in files:
         print(file_name)
         with open('%s%s'%(dir_name,file_name)) as f:
             group = json.load(f)
         pprint(group)
-        col.append(CarouselColumn(
-            title=group.get('title'), text=group.get('description'),
-            thumbnail_image_url=group.get('image'),
-            actions=[
-                URITemplateAction(
-                    label='加入群組',
-                    uri=group.get('url')
-                )
-            ]
-        ))
-    carousel_temp = CarouselTemplate(type='carousel', columns=col[0:10])
-    message = TemplateSendMessage(type='template', alt_text='line_group', template=carousel_temp)
+        data = template.render(group)
+        data = eval(data)
+        col.append(BubbleContainer.new_from_json_dict(data))
+    message = FlexSendMessage(alt_text='加入群組', contents=CarouselContainer(contents=col))
     return message
 
 @handler.add(MessageEvent, message=TextMessage)
@@ -238,7 +238,6 @@ def handle_message(event):
         ))
         line_bot_api.reply_message(event.reply_token, message)
     elif event.message.text == "大補帖":
-        #search_info()
         template = template_env.get_template('quick_reply.json')
         with open('quick_reply/week%s.json' % (str(week))) as f:
             option = json.load(f)
