@@ -112,11 +112,14 @@ def reminder():
     profile = line_bot_api.get_profile(user_id)
     user_name = profile.display_name
     #line_bot_api.push_message(user_id, TextSendMessage(text='Hi, %s 媽咪！下次產檢在%s/%s/%s喔～以下為下次產檢的注意事項...bla bla bla' % (user_name, year, month, date)))
+    line_bot_api.push_message(user_id, TextSendMessage(text=str(user_id)))
+    """
     template = template_env.get_template('reminder.json')
     data = template.render(year=year, month=month, date=date)
     data = eval(data)
     flex_message = FlexSendMessage(alt_text='下次產檢注意事項',contents=BubbleContainer.new_from_json_dict(data))
     line_bot_api.push_message(user_id, flex_message)
+    """
     return 'OK'
 
 @app.route('/video', methods=['POST'])
