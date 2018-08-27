@@ -101,21 +101,23 @@ def reminder():
     profile = line_bot_api.get_profile(user_id)
     user_name = profile.display_name
     #line_bot_api.push_message(user_id, TextSendMessage(text='Hi, %s 媽咪！下次產檢在%s/%s/%s喔～以下為下次產檢的注意事項...bla bla bla' % (user_name, year, month, date)))
-    line_bot_api.push_message(user_id, TextSendMessage(text=str(user_id)))
-    """
+    #line_bot_api.push_message(user_id, TextSendMessage(text=str(user_id)))
     template = template_env.get_template('reminder.json')
     data = template.render(year=year, month=month, date=date)
     data = eval(data)
     flex_message = FlexSendMessage(alt_text='下次產檢注意事項',contents=BubbleContainer.new_from_json_dict(data))
     line_bot_api.push_message(user_id, flex_message)
-    """
     return 'OK'
 
 @app.route('/video_1', methods=['POST'])
 def post_video1():
+    """
+    Comment for demo.
+
     if not request.content_type == 'application/json':
         abort(401)
 
+    x = request.GET
     data = request.get_json()
     user_id = data.get('user_id')
     if not user_id:
@@ -123,13 +125,18 @@ def post_video1():
     print(user_id)
     profile = line_bot_api.get_profile(user_id)
     user_name = profile.display_name
+    """
+    user_id = request.args.get("user_id")
+
     message = []
-    message.append(TextSendMessage(text="寶寶已經七個月囉～%s媽咪來回顧一下寶寶的成長吧！"%(user_name)))
+    #message.append(TextSendMessage(text="寶寶已經七個月囉～%s媽咪來回顧一下寶寶的成長吧！"%(user_name)))
+    message.append(TextSendMessage(text="寶寶已經七個月囉～媽咪來回顧一下寶寶的成長吧！"))
     message.append(VideoSendMessage(
         original_content_url='https://line-mommy-baby.herokuapp.com/static/video2.mp4',
         preview_image_url='https://cdn-b-east.streamable.com/image/kdebf_first.jpg?token=6m7RlkvMHXKg7I-g9fezJA&expires=1534826912'
     ))
     line_bot_api.push_message(user_id, message)
+
     return 'OK'
 
 @app.route('/video_2', methods=['POST'])
