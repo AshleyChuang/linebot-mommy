@@ -109,6 +109,13 @@ def reminder():
     line_bot_api.push_message(user_id, flex_message)
     return 'OK'
 
+@app.route("/setting", methods=['POST'])
+def reminder():
+    user_id = request.args.get("user_id")
+    message = TextSendMessage(text="恭喜媽咪懷孕第十週囉～～\n媽咪要多多照顧自己唷\nhttps://mamibuy.com.tw/talk/forum/topic/81243")
+    line_bot_api.push_message(user_id, message)
+    return 'OK'
+
 @app.route('/video_1', methods=['POST'])
 def post_video1():
     """
