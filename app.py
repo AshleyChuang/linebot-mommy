@@ -110,7 +110,14 @@ def reminder():
     return 'OK'
 
 @app.route("/setting", methods=['POST'])
-def reminder():
+def setting():
+    user_id = request.args.get("user_id")
+    message = TextSendMessage(text="恭喜媽咪懷孕第十週囉～～\n媽咪要多多照顧自己唷\nhttps://mamibuy.com.tw/talk/forum/topic/81243")
+    line_bot_api.push_message(user_id, message)
+    return 'OK'
+
+@app.route("/congra", methods=['POST'])
+def congra():
     user_id = request.args.get("user_id")
     message = TextSendMessage(text="恭喜媽咪懷孕第十週囉～～\n媽咪要多多照顧自己唷\nhttps://mamibuy.com.tw/talk/forum/topic/81243")
     line_bot_api.push_message(user_id, message)
