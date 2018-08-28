@@ -119,7 +119,7 @@ def setting():
 @app.route("/congra", methods=['POST'])
 def congra():
     user_id = request.args.get("user_id")
-    message = TextSendMessage(text="恭喜媽咪懷孕第十週囉～～\n媽咪要多多照顧自己唷\nhttps://mamibuy.com.tw/talk/forum/topic/81243")
+    message = TextSendMessage(text="恭喜媽咪熬過這280天☺️過程中雖然有點辛苦，但相信媽咪看到寶寶後覺得再辛苦都值得了！寶寶說送上LINE Points 280點來恭喜媽咪❤")
     line_bot_api.push_message(user_id, message)
     return 'OK'
 
