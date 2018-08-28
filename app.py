@@ -211,7 +211,7 @@ def article_fetching(tag):
     return message
 
 def get_line_group(dir_name):
-    files = [filename for filename in os.listdir(dir_name)]
+    files = sorted([filename for filename in os.listdir(dir_name)])
     col = []
     template = template_env.get_template('line_group.json')
 
