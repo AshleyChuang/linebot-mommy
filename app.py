@@ -241,7 +241,7 @@ def handle_message(event):
         message = []
         message.append(TextSendMessage(text="請選擇想加入的社群分類～"))
         message.append(ImagemapSendMessage(
-            base_url="https://i.imgur.com/sNhwbTh.jpg",
+            base_url="https://i.imgur.com/Vuh7xIP.jpg",
             alt_text="This is an imagemap",
             base_size=BaseSize(1040,1040),
             actions=[
